@@ -2,7 +2,6 @@
 #region imports
 using System;
 using System.Collections.Generic;
-//using System.Linq;
 using System.Threading.Tasks;
 #endregion
 namespace Books.ConsoleApp
@@ -12,45 +11,42 @@ namespace Books.ConsoleApp
         private static IBookPersist bookPersist = new BooksJsonPersist();
 
         // we will use these as local global state
-        private static BooksByAuthor[] BooksByAuthorCatalog;
-        private static int catalogNextEntryIndex;
+        private static List<BooksByAuthor> BooksByAuthorCatalog;
+
         public static void Main()
         {
             Book[] booksAll = bookPersist.Read();
 
             // catalogue - we would need at most booksAll lenght for the catalog -
             // that would be the case that all books are by a different author
-            BooksByAuthorCatalog = new BooksByAuthor[booksAll.Length];
-            catalogNextEntryIndex = 0;
+            BooksByAuthorCatalog = new List<BooksByAuthor>();
 
-            for (int i = 0; i < booksAll.Length; i++)
+            // look at booksArray from the perspective of IEnumerable - it is still an array but we choose to
+            // only expose the IEnumerable interface through the booksEnumerable
+            IEnumerable<Book> booksEnumerable = booksAll;
+
+            // the 'only' thing we can do with an enumerable is - get its enumerator
+            IEnumerator<Book> booksEnumerator = booksEnumerable.GetEnumerator();
+            while (booksEnumerator.MoveNext())
             {
-                var b = booksAll[i];
+                var b = booksEnumerator.Current;
 
-                if (!IsAuthorAlreadyCataloged(b))
+                var authorAlreadyCataloguedIndex = BooksByAuthorCatalog
+                    .FindIndex(entry => entry.author == b.author);
+                // if not such index if found then authorAlreadyCataloguedIndex would be -1
+                var authorAlreadyCatalogued = authorAlreadyCataloguedIndex > -1;
+
+                if (authorAlreadyCatalogued)
                 {
-                    CatalogueNewAuthor(catalogNextEntryIndex, b);
-                    // update the next entry index - we want to know which is the next open spot in the catalog
-                    catalogNextEntryIndex += 1;
+                    AddNewTitleToAuthor(b, authorAlreadyCataloguedIndex);
                 }
                 else
                 {
-                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(b);
-                    // there are some(1 or more) books by this author already found and catalogued
-                    AddNewTitleToAuthor(b, authorCatalogIndex);
+                    CatalogueNewAuthor(b);
                 }
             }
 
-            // finally we'll remove all extra entities
-            var finalBooksByAuthorCatalog = new BooksByAuthor[catalogNextEntryIndex - 1];
-            for (int i = 0; i < finalBooksByAuthorCatalog.Length; i++)
-            {
-                finalBooksByAuthorCatalog[i] = BooksByAuthorCatalog[i];
-            }
-            // update the catalog global state - so we can use it below
-            BooksByAuthorCatalog = finalBooksByAuthorCatalog;
-            // now we have an array that has all the authors catalogued
-
+            // now we have a list that has all the authors catalogued
             OutputBooksByAuthor();
 
             Console.WriteLine("Finished cataloguing authors. (press a key to exit...)");
@@ -59,11 +55,15 @@ namespace Books.ConsoleApp
 
         private static void OutputBooksByAuthor()
         {
-            for (int i = 0; i < BooksByAuthorCatalog.Length; i++)
+            var enumeratorAuthor = BooksByAuthorCatalog.GetEnumerator();
+            // we'll iterate over the cataloge to find the author - if author's already been cataloged
+            while (enumeratorAuthor.MoveNext())
             {
-                BooksByAuthor ba = BooksByAuthorCatalog[i];
+                var ba = enumeratorAuthor.Current;
                 Console.Write("Author: {0,-28} Books: ", ba.author);
-                for (int j = 0; j < ba.books.Length; j++)
+
+                var enumeratorBooks = ba.books.GetEnumerator();
+                for (int j = 0; j < ba.books.Count; j++)
                 {
                     Console.Write(ba.books[j].title + ", ");
                 }
@@ -73,79 +73,27 @@ namespace Books.ConsoleApp
 
         private static void AddNewTitleToAuthor(Book b, int authorCatalogIndex)
         {
-            // take the current books by this author
-            Book[] books = BooksByAuthorCatalog[authorCatalogIndex].books;
-            // create a new array with lenght greater with 1
-            var newBooksArray = new Book[books.Length + 1];
-            // copy the books in the new array
-            for (int j = 0; j < books.Length; j++)
-            {
-                newBooksArray[j] = books[j];
-            }// what would j be here
-
-            // copy the current book in the last spot
-            newBooksArray[newBooksArray.Length - 1] = b;
-
-            var booksByThisAuthorUpdated = new BooksByAuthor(b.author, newBooksArray);
-            BooksByAuthorCatalog[authorCatalogIndex] = booksByThisAuthorUpdated;
+            var booksByThisAutorList = BooksByAuthorCatalog[authorCatalogIndex];
+            // take the current books by this author and add the next
+            booksByThisAutorList.books.Add(b);
         }
 
-        private static void CatalogueNewAuthor(int catalogNextEntryIndex, Book b)
+        private static void CatalogueNewAuthor(Book b)
         {
             // there are NONE books by this author already found and cataloged
-
-            // create a new array with lenght 1
-            var newBooksArray = new Book[1];
-            // put the book we just found in it
-            newBooksArray[0] = b;
-            var authorAndBooks = new BooksByAuthor(b.author, newBooksArray);
+            var newBookList = new List<Book> { b };
+            var authorAndBooks = new BooksByAuthor(b.author, newBookList);
             // push that to the catalog
-            BooksByAuthorCatalog[catalogNextEntryIndex] = authorAndBooks;
-        }
-
-        private static bool IsAuthorAlreadyCataloged(Book b)
-        {
-            var authorAlreadyCatalogued = false;
-
-            // we'll iterate over the cataloge to find the author - if author's already been cataloged
-            for (int j = 0; j < BooksByAuthorCatalog.Length; j++)
-            {
-                var entry = BooksByAuthorCatalog[j];
-                if (entry != null && entry.author == b.author)
-                {
-                    authorAlreadyCatalogued = true;
-                    break;
-                }
-            }
-
-            return authorAlreadyCatalogued;
-        }
-
-        private static int LocateAuthorAlreadyCataloged(Book b)
-        {
-            var authorCatalogIndex = 0;
-
-            // we'll iterate over the cataloge to find the author's index
-            for (int j = 0; j < BooksByAuthorCatalog.Length; j++)
-            {
-                var entry = BooksByAuthorCatalog[j];
-                if (entry != null && entry.author == b.author)
-                {
-                    authorCatalogIndex = j;
-                    break;
-                }
-            }
-
-            return authorCatalogIndex;
+            BooksByAuthorCatalog.Add(authorAndBooks);
         }
     }
 
     public class BooksByAuthor
     {
         public readonly string author;
-        public readonly Book[] books;
+        public readonly List<Book> books;
 
-        public BooksByAuthor(string author, Book[] books)
+        public BooksByAuthor(string author, List<Book> books)
         {
             this.author = author;
             this.books = books;
