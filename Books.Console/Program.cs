@@ -26,11 +26,8 @@ namespace Books.ConsoleApp
             IEnumerable<Book> booksEnumerable = booksAll;
 
             // the 'only' thing we can do with an enumerable is - get its enumerator
-            IEnumerator<Book> booksEnumerator = booksEnumerable.GetEnumerator();
-            while (booksEnumerator.MoveNext())
+            foreach (var b in booksEnumerable)
             {
-                var b = booksEnumerator.Current;
-
                 var authorAlreadyCataloguedIndex = BooksByAuthorCatalog
                     .FindIndex(entry => entry.author == b.author);
                 // if not such index if found then authorAlreadyCataloguedIndex would be -1
@@ -55,17 +52,12 @@ namespace Books.ConsoleApp
 
         private static void OutputBooksByAuthor()
         {
-            var enumeratorAuthor = BooksByAuthorCatalog.GetEnumerator();
-            // we'll iterate over the cataloge to find the author - if author's already been cataloged
-            while (enumeratorAuthor.MoveNext())
+            foreach (var ba in BooksByAuthorCatalog)
             {
-                var ba = enumeratorAuthor.Current;
                 Console.Write("Author: {0,-28} Books: ", ba.author);
-
-                var enumeratorBooks = ba.books.GetEnumerator();
-                for (int j = 0; j < ba.books.Count; j++)
+                foreach (var book in ba.books)
                 {
-                    Console.Write(ba.books[j].title + ", ");
+                    Console.Write(book.title + ", ");
                 }
                 Console.Write(Environment.NewLine);
             }
