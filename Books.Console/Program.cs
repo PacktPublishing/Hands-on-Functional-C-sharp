@@ -29,8 +29,8 @@ namespace Books.ConsoleApp
                         Console.WriteLine("No author with such name found. Try:");
                         SearchByAuthor.SuggestAuthors(booksAll)
                             .ToList()
-                            .ForEach(a => PrintInBackground(a + Environment.NewLine, ConsoleColor.DarkBlue));
-                        PrintOutEmptyLines(lines - 5);
+                            .ForEach(a => PrettyPrint(a + Environment.NewLine, ConsoleColor.DarkBlue));
+
                     }
                     else if (authors.Count() == 1)
                     {
@@ -40,7 +40,7 @@ namespace Books.ConsoleApp
                             .ToList()
                             .ForEach(book =>
                             {
-                                PrintInBackground(
+                                PrettyPrint(
                                     $"{book.title} of year {book.year} pages {book.pages} in {book.language } [{book.country}] {Environment.NewLine}Categories: {string.Join(",", book.categories)} {Environment.NewLine}",
                                     ConsoleColor.DarkGreen);
                                 Console.WriteLine("------------");
@@ -50,31 +50,44 @@ namespace Books.ConsoleApp
                     {
                         Console.WriteLine("Found authors:");
                         authors.ToList().ForEach(Console.WriteLine);
-                        PrintOutEmptyLines(lines - authors.Count());
                     }
                 }
-                else
-                {
-                    PrintOutEmptyLines(lines);
-                }
+
+                FillOutConsole(2);
                 Console.WriteLine("Type author name or part of it. Type 'exit' to exit..");
                 lineRead = Console.ReadLine();
 
             } while (!lineRead.ToLower().Contains("exit"));
         }
 
+        public static void FillOutConsole(int leaveLines = 0)
+        {
+            var lenghtToFill = linesToEndOfConsole();
+            PrintOutEmptyLines(lenghtToFill - leaveLines);
+        }
 
         private static void PrintOutEmptyLines(int number)
         {
-            Enumerable.Range(0, number).ToList().ForEach(_ => Console.WriteLine());
+            if (number > 0)
+            {
+                Enumerable.Range(0, number).ToList().ForEach(_ => Console.WriteLine());
+            }
         }
 
-        private static void PrintInBackground(string text, ConsoleColor color)
+        private static void PrettyPrint(string text, ConsoleColor backgroundColor)
         {
             var current = Console.BackgroundColor;
-            Console.BackgroundColor = color;
+            Console.BackgroundColor = backgroundColor;
             Console.Write(text);
             Console.BackgroundColor = current;
+        }
+
+        private static int linesToEndOfConsole()
+        {
+            // shrink buffer and window
+            var total = Console.WindowHeight;
+            var cursorBotom = total - Console.CursorTop;
+            return total - cursorBotom;
         }
 
     }
