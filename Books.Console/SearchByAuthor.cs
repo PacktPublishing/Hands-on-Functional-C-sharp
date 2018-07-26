@@ -17,7 +17,7 @@ namespace Books.ConsoleApp
                 .Search(author);
         }
 
-        public static IEnumerable<string> AutocompleteAuthors(IEnumerable<Book> inputBooks, string searchPart)
+        public static IEnumerable<string> ListAuthorsByPartOfName(IEnumerable<Book> inputBooks, string searchPart)
         {
             return inputBooks
                 .ExtractAuthors()

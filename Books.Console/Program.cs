@@ -27,7 +27,7 @@ namespace Books.ConsoleApp
             {
                 if (lineRead.Count() >= 3)
                 {
-                    var authors = SearchByAuthor.AutocompleteAuthors(booksAll, lineRead);
+                    var authors = SearchByAuthor.ListAuthorsByPartOfName(booksAll, lineRead);
                     if (authors.Count() == 0)
                     {
                         Console.Write($"No author with name like ");
@@ -36,7 +36,6 @@ namespace Books.ConsoleApp
                         SearchByAuthor.SuggestAuthors(booksAll)
                             .ToList()
                             .ForEach(a => PrettyPrintLine(a, authorColor));
-
                     }
                     else if (authors.Count() == 1)
                     {
