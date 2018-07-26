@@ -11,14 +11,18 @@ namespace Books.ConsoleApp
     class Program
     {
         private static IBookPersist bookPersist = new BooksJsonPersist();
-        private static readonly int lines = 20;
+
+        private static ConsoleColor authorColor = ConsoleColor.DarkBlue;
+        private static ConsoleColor bookColor = ConsoleColor.DarkGreen;
+        private static ConsoleColor suggestionColor = ConsoleColor.DarkCyan;
+
 
         public static void Main()
         {
             var booksAll = bookPersist.Read();
 
             string lineRead = string.Empty;
-            Console.WriteLine("Search by author. Type to see author list.");
+            Console.WriteLine("Search by author.");
             do
             {
                 if (lineRead.Count() >= 3)
@@ -26,10 +30,12 @@ namespace Books.ConsoleApp
                     var authors = SearchByAuthor.AutocompleteAuthors(booksAll, lineRead);
                     if (authors.Count() == 0)
                     {
-                        Console.WriteLine("No author with such name found. Try:");
+                        Console.Write($"No author with name like ");
+                        PrettyPrint(lineRead, authorColor);
+                        Console.WriteLine(" found. Try:");
                         SearchByAuthor.SuggestAuthors(booksAll)
                             .ToList()
-                            .ForEach(a => PrettyPrint(a + Environment.NewLine, ConsoleColor.DarkBlue));
+                            .ForEach(a => PrettyPrintLine(a, authorColor));
 
                     }
                     else if (authors.Count() == 1)
@@ -40,9 +46,9 @@ namespace Books.ConsoleApp
                             .ToList()
                             .ForEach(book =>
                             {
-                                PrettyPrint(
-                                    $"{book.title} of year {book.year} pages {book.pages} in {book.language } [{book.country}] {Environment.NewLine}Categories: {string.Join(",", book.categories)} {Environment.NewLine}",
-                                    ConsoleColor.DarkGreen);
+                                PrettyPrintLine(
+                                    $"{book.title} of year {book.year} pages {book.pages} in {book.language } [{book.country}] {Environment.NewLine}Categories: {string.Join(",", book.categories)}",
+                                    bookColor);
                                 Console.WriteLine("------------");
                             });
                     }
@@ -52,19 +58,20 @@ namespace Books.ConsoleApp
                         authors.ToList().ForEach(Console.WriteLine);
                     }
                 }
+                else
+                {
+                    PrettyPrintLine("Type at least 3 charachters to see list of autors matching or list of books for the single matched author.",
+                        suggestionColor);
+                }
 
                 FillOutConsole(2);
                 Console.WriteLine("Type author name or part of it. Type 'exit' to exit..");
                 lineRead = Console.ReadLine();
+                NoteCursorPosition();
 
             } while (!lineRead.ToLower().Contains("exit"));
         }
 
-        public static void FillOutConsole(int leaveLines = 0)
-        {
-            var lenghtToFill = linesToEndOfConsole();
-            PrintOutEmptyLines(lenghtToFill - leaveLines);
-        }
 
         private static void PrintOutEmptyLines(int number)
         {
@@ -82,12 +89,30 @@ namespace Books.ConsoleApp
             Console.BackgroundColor = current;
         }
 
-        private static int linesToEndOfConsole()
+        private static void PrettyPrintLine(string text, ConsoleColor backgroundColor)
         {
-            // shrink buffer and window
-            var total = Console.WindowHeight;
-            var cursorBotom = total - Console.CursorTop;
-            return total - cursorBotom;
+            PrettyPrint(text, backgroundColor);
+            Console.WriteLine();
+        }
+
+        private static int lastCursorPositionBottom = 0;
+        private static void NoteCursorPosition()
+        {
+            lastCursorPositionBottom = Console.CursorTop;
+        }
+
+        public static void FillOutConsole(int reserveForPromptMessage = 0)
+        {
+            var lenghtToFill = LinesToEndOfConsole();
+            PrintOutEmptyLines(lenghtToFill - reserveForPromptMessage);
+        }
+
+
+        private static int LinesToEndOfConsole()
+        {
+            var linesPrinted = Console.CursorTop - lastCursorPositionBottom;
+            var linesToEndOfWindow = Console.WindowHeight - linesPrinted;
+            return linesToEndOfWindow;
         }
 
     }

@@ -10,6 +10,8 @@ namespace Books.ConsoleApp
 
     public static class SearchByAuthor
     {
+        private static Random randomOrder = new Random();
+
         public static IEnumerable<Book> Search(IEnumerable<Book> inputBooks, string author)
         {
             return inputBooks
@@ -28,7 +30,7 @@ namespace Books.ConsoleApp
         {
             return books
                  .ExtractAuthors()
-                 .OrderBy(a => new Guid().ToString())
+                 .OrderBy(_ => randomOrder.Next(0, 10000))
                  .Take(suggestionLength);
         }
     }
