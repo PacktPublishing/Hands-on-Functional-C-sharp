@@ -40,7 +40,9 @@ namespace Books.ConsoleApp
                     }
                     else if (authors.Count() == 1)
                     {
-                        Console.WriteLine($"Books found by {authors.First()}:");
+                        Console.Write($"Books found by ");
+                        PrettyPrint(authors.First(), authorColor);
+                        Console.WriteLine(":");
 
                         SearchByAuthor.Search(booksAll, authors.First())
                             .ToList()
@@ -60,11 +62,11 @@ namespace Books.ConsoleApp
                 }
                 else
                 {
-                    PrettyPrintLine("Type at least 3 charachters to see list of autors matching or list of books for the single matched author.",
+                    PrettyPrintLine("Type at least 3 characters to see list of autors matching or list of books for the single matched author.",
                         suggestionColor);
                 }
 
-                FillOutConsole(2);
+                FillOutConsole(4);
                 Console.WriteLine("Type author name or part of it. Type 'exit' to exit..");
                 lineRead = Console.ReadLine();
                 NoteCursorPosition();
