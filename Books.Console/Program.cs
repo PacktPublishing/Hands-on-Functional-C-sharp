@@ -55,7 +55,7 @@ namespace Books.ConsoleApp
                     else
                     {
                         Console.WriteLine("Found authors:");
-                        authors.ToList().ForEach(Console.WriteLine);
+                        authors.ToList().ForEach(a => PrettyPrintLine(a, authorColor));
                     }
                 }
                 else
@@ -71,7 +71,7 @@ namespace Books.ConsoleApp
 
             } while (!lineRead.ToLower().Contains("exit"));
         }
-
+        
 
         private static void PrintOutEmptyLines(int number)
         {
