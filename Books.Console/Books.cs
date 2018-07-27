@@ -34,7 +34,7 @@ namespace Books.ConsoleApp
     {
         private string booksJsonFile;
 
-        public BooksJsonPersist(string booksFile = "books1.json")
+        public BooksJsonPersist(string booksFile = "books.json")
         {
             booksJsonFile = booksFile;
         }

@@ -12,10 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="books.json">
+    <None Update="books-raw.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="books1.json">
+    <None Update="books.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
