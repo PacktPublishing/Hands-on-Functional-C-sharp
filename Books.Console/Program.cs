@@ -25,7 +25,7 @@ namespace Books.ConsoleApp
             Console.WriteLine("Search by author.");
             do
             {
-                if (lineRead.Count() >= 3)
+                if (!string.IsNullOrWhiteSpace(lineRead))
                 {
                     var authors = SearchByAuthor.ListAuthorsByPartOfName(booksAll, lineRead);
                     if (authors.Count() == 0)
@@ -48,23 +48,18 @@ namespace Books.ConsoleApp
                             .ForEach(book =>
                             {
                                 PrettyPrintLine(
-                                    $"{book.title} of year {book.year} pages {book.pages} in {book.language } [{book.country}] {Environment.NewLine}Categories: {string.Join(",", book.categories)}",
+                                    $"{book.title}, of year {book.year}, pages {book.pages} in {book.language } [{book.country}] {Environment.NewLine}Categories: {string.Join(",", book.categories)}",
                                     bookColor);
                                 Console.WriteLine("------------");
                             });
                     }
                     else
                     {
-                        Console.WriteLine("Found authors:");
+                        Console.WriteLine("Found authors. Specify one of them:");
                         authors.ToList().ForEach(a => PrettyPrintLine(a, authorColor));
                     }
                 }
-                else
-                {
-                    PrettyPrintLine("Type at least 3 characters to see list of autors matching or list of books for the single matched author.",
-                        suggestionColor);
-                }
-
+                
                 FillOutConsole(4);
                 Console.WriteLine("Type author name or part of it. Type 'exit' to exit..");
                 lineRead = Console.ReadLine();
@@ -72,7 +67,7 @@ namespace Books.ConsoleApp
 
             } while (!lineRead.ToLower().Contains("exit"));
         }
-        
+
 
         private static void PrintOutEmptyLines(int number)
         {
