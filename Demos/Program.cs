@@ -24,18 +24,8 @@ namespace Demos
             PrintOut(authors, "All Authors");
             PrintOut(longNamedAuthors, "Long Named authors UPPERCASED");
             PrintOut(shortNamedAuthors, "Short Named authors lowercased");
-            
+
             Console.ReadLine();
-        }
-
-        private static IEnumerable<string> FindShortNamedAuthors(string[] authors)
-        {
-            var authorsShortNamedLowercased = authors
-                .Where(a => a.Length <= 10)
-                .OrderByDescending(a => a.Length)
-                .Select(a => a.ToLower());
-
-            return authorsShortNamedLowercased;
         }
 
         private static IEnumerable<string> FindLongNames(string[] authors)
@@ -46,6 +36,16 @@ namespace Demos
                                              select a.ToUpper();
 
             return authorsLongNamesUppercased;
+        }
+
+        private static IEnumerable<string> FindShortNamedAuthors(string[] authors)
+        {
+            var authorsShortNamedLowercased = authors
+                .Where(a => a.Length <= 10)
+                .OrderByDescending(a => a.Length)
+                .Select(a => a.ToLower());
+
+            return authorsShortNamedLowercased;
         }
 
         private static void PrintOut(IEnumerable<string> strings, string title)
