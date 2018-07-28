@@ -22,18 +22,21 @@ namespace Demos
             var longNamedAuthors = from a in authors
                                    where a.Length > 10
                                    orderby a.Length descending
-                                   select a.ToUpper();
+                                   select a;
+
 
 
 
             var shortNamedAuthors = authors
                 .Where(a => a.Length <= 10)
-                .OrderByDescending(a => a.Length)
-                .Select(a => a.ToLower());
+                .OrderByDescending(a => a.Length);
+
+
+
 
             PrintOut(authors, "All Authors");
-            PrintOut(longNamedAuthors, "Long Named authors UPPERCASED");
-            PrintOut(shortNamedAuthors, "Short Named authors lowercased");
+            PrintOut(longNamedAuthors, "Long Named authors");
+            PrintOut(shortNamedAuthors, "Short Named authors");
 
             Console.ReadLine();
         }
