@@ -5,14 +5,14 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "Demos .NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Books.Console/bin/Debug/netcoreapp2.0/Books.ConsoleApp.dll",
+            "program": "${workspaceFolder}/Demos/bin/Debug/netcoreapp2.0/Demos.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Books.Console",
+            "cwd": "${workspaceFolder}/Demos",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,
