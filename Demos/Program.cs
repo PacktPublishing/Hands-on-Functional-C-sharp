@@ -20,9 +20,9 @@ namespace Demos
 
 
             var longNamedAuthors = from a in authors
-                                             where a.Length > 10
-                                             orderby a.Length descending
-                                             select a.ToUpper();
+                                   where a.Length > 10
+                                   orderby a.Length descending
+                                   select a.ToUpper();
 
 
 
