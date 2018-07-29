@@ -30,7 +30,7 @@ namespace Books.ConsoleApp
                     var authors = SearchByAuthor.MatchAutors(books, userInput);
                     if (authors.Count() == 0)
                     {
-                        PrintAuthorName("No author with name like ", userInput, " found. Try:");
+                        PrintAuthorIn("No author with name like ", userInput, " found. Try:");
 
                         SearchByAuthor.SuggestAuthors(books)
                             .ToList()
@@ -38,7 +38,7 @@ namespace Books.ConsoleApp
                     }
                     else if (authors.Count() == 1)
                     {
-                        PrintAuthorName("Books found by ", authors.First(), ":");
+                        PrintAuthorIn("Books found by ", authors.First(), ":");
 
                         SearchByAuthor.Search(books, authors.First())
                             .ToList()
@@ -59,7 +59,7 @@ namespace Books.ConsoleApp
             } while (!userInput.ToLower().Contains("exit"));
         }
 
-        private static void PrintAuthorName(string start, string authorName, string end)
+        private static void PrintAuthorIn(string start, string authorName, string end)
         {
             Console.Write(start);
             PrettyPrint(authorName, authorColor);
