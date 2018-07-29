@@ -29,7 +29,8 @@ namespace Demos
 
             var shortNamedAuthors = authors
                 .Where(a => a.Length <= 10)
-                .OrderByDescending(a => a.Length);
+                .OrderByDescending(a => a.Length)
+                .Select(a => a);
 
 
 
