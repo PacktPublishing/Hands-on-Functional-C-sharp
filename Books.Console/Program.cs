@@ -19,55 +19,61 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
-            var booksAll = bookPersist.Read();
+            var books = bookPersist.Read();
 
-            string lineRead = string.Empty;
+            string userInput = string.Empty;
             Console.WriteLine("Search by author.");
             do
             {
-                if (!string.IsNullOrWhiteSpace(lineRead))
+                if (!string.IsNullOrWhiteSpace(userInput))
                 {
-                    var authors = SearchByAuthor.ListAuthorsByPartOfName(booksAll, lineRead);
+                    var authors = SearchByAuthor.MatchAutors(books, userInput);
                     if (authors.Count() == 0)
                     {
-                        Console.Write($"No author with name like ");
-                        PrettyPrint(lineRead, authorColor);
-                        Console.WriteLine(" found. Try:");
-                        SearchByAuthor.SuggestAuthors(booksAll)
+                        PrintAuthorName("No author with name like ", userInput, " found. Try:");
+
+                        SearchByAuthor.SuggestAuthors(books)
                             .ToList()
                             .ForEach(a => PrettyPrintLine(a, authorColor));
                     }
                     else if (authors.Count() == 1)
                     {
-                        Console.Write($"Books found by ");
-                        PrettyPrint(authors.First(), authorColor);
-                        Console.WriteLine(":");
+                        PrintAuthorName("Books found by ", authors.First(), ":");
 
-                        SearchByAuthor.Search(booksAll, authors.First())
+                        SearchByAuthor.Search(books, authors.First())
                             .ToList()
-                            .ForEach(book =>
-                            {
-                                PrettyPrintLine(
-                                    $"{book.title}, of year {book.year}, pages {book.pages} in {book.language } [{book.country}] {Environment.NewLine}Categories: {string.Join(",", book.categories)}",
-                                    bookColor);
-                                Console.WriteLine("------------");
-                            });
+                            .ForEach(PrintBook);
                     }
                     else
                     {
-                        Console.WriteLine("Found authors. Specify one of them:");
+                        Console.WriteLine("Found multiple authors. Specify one of them:");
                         authors.ToList().ForEach(a => PrettyPrintLine(a, authorColor));
                     }
                 }
                 
                 FillOutConsole(4);
                 Console.WriteLine("Type author name or part of it. Type 'exit' to exit..");
-                lineRead = Console.ReadLine();
+                userInput = Console.ReadLine();
                 NoteCursorPosition();
 
-            } while (!lineRead.ToLower().Contains("exit"));
+            } while (!userInput.ToLower().Contains("exit"));
         }
 
+        private static void PrintAuthorName(string start, string authorName, string end)
+        {
+            Console.Write(start);
+            PrettyPrint(authorName, authorColor);
+            Console.WriteLine(end);
+        }
+
+        private static void PrintBook(Book book)
+        {
+            PrettyPrintLine(
+                $"{book.title}, of year {book.year}, pages {book.pages} in {book.language } [{book.country}]",
+                bookColor);
+            PrettyPrintLine($"Categories: {string.Join(",", book.categories)}", bookColor);
+            Console.WriteLine("------------");
+        }
 
         private static void PrintOutEmptyLines(int number)
         {
