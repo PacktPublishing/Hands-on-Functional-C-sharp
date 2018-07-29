@@ -40,7 +40,7 @@ namespace Books.ConsoleApp
                     {
                         PrintAuthorIn("Books found by ", authors.First(), ":");
 
-                        SearchByAuthor.Search(books, authors.First())
+                        SearchByAuthor.FindBooks(books, authors.First())
                             .ToList()
                             .ForEach(PrintBook);
                     }

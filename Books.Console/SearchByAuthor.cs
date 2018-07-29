@@ -10,26 +10,28 @@ namespace Books.ConsoleApp
 
     public static class SearchByAuthor
     {
-        public static IEnumerable<Book> Search(IEnumerable<Book> inputBooks, string author)
-        {
-            return inputBooks
-                .CatalogueByAuthor()
-                .Search(author);
-        }
-
-        public static IEnumerable<string> MatchAutors(IEnumerable<Book> inputBooks, string searchPart)
+        public static IEnumerable<string> MatchAutors(IEnumerable<Book> inputBooks, 
+            string searchInput)
         {
             return inputBooks
                 .ExtractAuthors()
-                .ListByPartOfName(searchPart);
+                .ListByPartOfName(searchInput);
         }
 
-        public static IEnumerable<string> SuggestAuthors(IEnumerable<Book> books, int suggestionLength = 5)
+        public static IEnumerable<string> SuggestAuthors(IEnumerable<Book> books, 
+            int suggestionLength = 5)
         {
             return books
                  .ExtractAuthors()
                  .OrderBy(_ => Guid.NewGuid())
                  .Take(suggestionLength);
+        }
+
+        public static IEnumerable<Book> FindBooks(IEnumerable<Book> inputBooks, string author)
+        {
+            return inputBooks
+                .CatalogueByAuthor()
+                .Search(author);
         }
     }
 
