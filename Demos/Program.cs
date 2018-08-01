@@ -8,7 +8,7 @@ namespace Demos
     {
         static void Main(string[] args)
         {
-            string[] authors = new string[] {
+            IEnumerable<string> authors = new string[] {
                 "Kurt Vonnegut",
                 "Stephen King",
                 "J.K. Rowling",
@@ -18,22 +18,15 @@ namespace Demos
                 "Homer"
             };
 
-
-            var longNamedAuthors = from a in authors
-                                   where a.Length > 10
-                                   orderby a.Length descending
-                                   select a;
-
-
-
-
             var shortNamedAuthors = authors
                 .Where(a => a.Length <= 10)
                 .OrderByDescending(a => a.Length)
                 .Select(a => a);
 
-
-
+            var longNamedAuthors = from a in authors
+                                   where a.Length > 10
+                                   orderby a.Length descending
+                                   select a;
 
             PrintOut(authors, "All Authors");
             PrintOut(longNamedAuthors, "Long Named authors");
