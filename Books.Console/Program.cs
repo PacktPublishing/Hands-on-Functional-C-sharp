@@ -17,7 +17,7 @@ namespace Books.ConsoleApp
         {
             Book[] books = bookPersist.Read();
 
-            // catalogue - we would need at most books lenght for the catalog -
+            // catalogue - we would need at most books.lenght for the catalog -
             // that would be the case that all books are by a different author
             BooksByAuthorCatalog = new BooksByAuthor[books.Length];
             catalogNextEntryIndex = 0;
@@ -26,17 +26,17 @@ namespace Books.ConsoleApp
             {
                 var book = books[i];
 
-                if (!IsAuthorAlreadyCataloged(book))
-                {
-                    CatalogueNewAuthor(catalogNextEntryIndex, book);
-                    // update the next entry index - we want to know which is the next open spot in the catalog
-                    catalogNextEntryIndex += 1;
-                }
-                else
+                if (AuthorIsAlreadyCataloged(book))
                 {
                     var authorCatalogIndex = LocateAuthorAlreadyCataloged(book);
                     // there are some(1 or more) books by this author already found and catalogued
                     AddNewTitleToAuthor(book, authorCatalogIndex);
+                }
+                else
+                {
+                    CatalogueNewAuthor(catalogNextEntryIndex, book);
+                    // update the next entry index - we want to know which is the next open spot in the catalog
+                    catalogNextEntryIndex += 1;
                 }
             }
 
@@ -102,7 +102,7 @@ namespace Books.ConsoleApp
             BooksByAuthorCatalog[catalogNextEntryIndex] = authorAndBooks;
         }
 
-        private static bool IsAuthorAlreadyCataloged(Book b)
+        private static bool AuthorIsAlreadyCataloged(Book b)
         {
             var authorAlreadyCatalogued = false;
 
