@@ -8,14 +8,14 @@ namespace Books.ConsoleApp
 {
     class Program
     {
-        private static IBookPersist bookPersist = new BooksJsonPersist();
+        private static IBooksSource BooksSource = new BooksJsonSource();
 
         // we will use these as local global state
         private static BooksByAuthor[] BooksByAuthorCatalog;
         private static int catalogNextEntryIndex;
         public static void Main()
         {
-            Book[] books = bookPersist.Read();
+            Book[] books = BooksSource.Read();
 
             // catalogue - we would need at most books.lenght for the catalog -
             // that would be the case that all books are by a different author
