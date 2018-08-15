@@ -15,28 +15,28 @@ namespace Books.ConsoleApp
         private static int catalogNextEntryIndex;
         public static void Main()
         {
-            Book[] booksAll = bookPersist.Read();
+            Book[] books = bookPersist.Read();
 
-            // catalogue - we would need at most booksAll lenght for the catalog -
+            // catalogue - we would need at most books lenght for the catalog -
             // that would be the case that all books are by a different author
-            BooksByAuthorCatalog = new BooksByAuthor[booksAll.Length];
+            BooksByAuthorCatalog = new BooksByAuthor[books.Length];
             catalogNextEntryIndex = 0;
 
-            for (int i = 0; i < booksAll.Length; i++)
+            for (int i = 0; i < books.Length; i++)
             {
-                var b = booksAll[i];
+                var book = books[i];
 
-                if (!IsAuthorAlreadyCataloged(b))
+                if (!IsAuthorAlreadyCataloged(book))
                 {
-                    CatalogueNewAuthor(catalogNextEntryIndex, b);
+                    CatalogueNewAuthor(catalogNextEntryIndex, book);
                     // update the next entry index - we want to know which is the next open spot in the catalog
                     catalogNextEntryIndex += 1;
                 }
                 else
                 {
-                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(b);
+                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book);
                     // there are some(1 or more) books by this author already found and catalogued
-                    AddNewTitleToAuthor(b, authorCatalogIndex);
+                    AddNewTitleToAuthor(book, authorCatalogIndex);
                 }
             }
 
