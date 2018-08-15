@@ -28,8 +28,8 @@ namespace Books.ConsoleApp
 
                 if (AuthorIsAlreadyCataloged(book))
                 {
-                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book);
                     // there are some(1 or more) books by this author already found and catalogued
+                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book);
                     AddNewTitleToAuthor(book, authorCatalogIndex);
                 }
                 else
