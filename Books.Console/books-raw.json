@@ -1,11 +1,5 @@
-[
+﻿[
   {
-    "categories": [
-      "Fiction",
-      "Religion",
-      "Literary Criticism",
-      "Juvenile Nonfiction"
-    ],
     "author": "Chinua Achebe",
     "country": "Nigeria",
     "imageLink": "images/things-fall-apart.jpg",
@@ -16,12 +10,6 @@
     "year": 1958
   },
   {
-    "categories": [
-      "Juvenile Fiction",
-      "Fiction",
-      "Reference",
-      "Literary Criticism"
-    ],
     "author": "Hans Christian Andersen",
     "country": "Denmark",
     "imageLink": "images/fairy-tales.jpg",
@@ -32,13 +20,6 @@
     "year": 1836
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Good and evil",
-      "Poetry",
-      "Study Aids"
-    ],
     "author": "Dante Alighieri",
     "country": "Italy",
     "imageLink": "images/the-divine-comedy.jpg",
@@ -49,12 +30,6 @@
     "year": 1315
   },
   {
-    "categories": [
-      "Poetry",
-      "Fiction",
-      "Literary Criticism",
-      "Religion"
-    ],
     "author": "Unknown",
     "country": "Sumer and Akkadian Empire",
     "imageLink": "images/the-epic-of-gilgamesh.jpg",
@@ -65,10 +40,6 @@
     "year": -1700
   },
   {
-    "categories": [
-      "Religion",
-      "Bible"
-    ],
     "author": "Unknown",
     "country": "Achaemenid Empire",
     "imageLink": "images/the-book-of-job.jpg",
@@ -79,12 +50,6 @@
     "year": -600
   },
   {
-    "categories": [
-      "Fiction",
-      "Drama",
-      "Literary Criticism",
-      "History"
-    ],
     "author": "Unknown",
     "country": "India/Iran/Iraq/Egypt/Tajikistan",
     "imageLink": "images/one-thousand-and-one-nights.jpg",
@@ -95,29 +60,16 @@
     "year": 1200
   },
   {
-    "categories": [
-      "Njáls Saga",
-      "Literary Criticism",
-      "Fiction",
-      "Romance, English",
-      "Literary Collections"
-    ],
     "author": "Unknown",
     "country": "Iceland",
     "imageLink": "images/njals-saga.jpg",
     "language": "Old Norse",
     "link": "https://en.wikipedia.org/wiki/Nj%C3%A1ls_saga\n",
     "pages": 384,
-    "title": "Njál's Saga",
+    "title": "Nj\u00e1l's Saga",
     "year": 1350
   },
   {
-    "categories": [
-      "Fiction",
-      "Courtship",
-      "English literature",
-      "Biography & Autobiography"
-    ],
     "author": "Jane Austen",
     "country": "United Kingdom",
     "imageLink": "images/pride-and-prejudice.jpg",
@@ -128,28 +80,16 @@
     "year": 1813
   },
   {
-    "categories": [
-      "France",
-      "Education",
-      "Juvenile Fiction",
-      "Literary Criticism",
-      "Drama"
-    ],
-    "author": "Honoré de Balzac",
+    "author": "Honor\u00e9 de Balzac",
     "country": "France",
     "imageLink": "images/le-pere-goriot.jpg",
     "language": "French",
     "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot\n",
     "pages": 443,
-    "title": "Le Père Goriot",
+    "title": "Le P\u00e8re Goriot",
     "year": 1835
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "History"
-    ],
     "author": "Samuel Beckett",
     "country": "Republic of Ireland",
     "imageLink": "images/molloy-malone-dies-the-unnamable.jpg",
@@ -160,13 +100,6 @@
     "year": 1952
   },
   {
-    "categories": [
-      "Fiction",
-      "History",
-      "Social Science",
-      "Falcons",
-      "Literary Criticism"
-    ],
     "author": "Giovanni Boccaccio",
     "country": "Italy",
     "imageLink": "images/the-decameron.jpg",
@@ -177,13 +110,6 @@
     "year": 1351
   },
   {
-    "categories": [
-      "Fiction",
-      "Comics & Graphic Novels",
-      "Spanish literature",
-      "Social Science",
-      "Education"
-    ],
     "author": "Jorge Luis Borges",
     "country": "Argentina",
     "imageLink": "images/ficciones.jpg",
@@ -194,16 +120,7 @@
     "year": 1965
   },
   {
-    "categories": [
-      "Literary Criticism",
-      "Study Aids",
-      "Education",
-      "Reference",
-      "Foundlings",
-      "Juvenile Fiction",
-      "Fiction"
-    ],
-    "author": "Emily Brontë",
+    "author": "Emily Bront\u00eb",
     "country": "United Kingdom",
     "imageLink": "images/wuthering-heights.jpg",
     "language": "English",
@@ -213,13 +130,6 @@
     "year": 1847
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Study Aids",
-      "Religion",
-      "Electronic books"
-    ],
     "author": "Albert Camus",
     "country": "Algeria, French Empire",
     "imageLink": "images/l-etranger.jpg",
@@ -230,14 +140,6 @@
     "year": 1942
   },
   {
-    "categories": [
-      "Poetry",
-      "Literary Criticism",
-      "Scottish poetry",
-      "Literary Collections",
-      "American poetry",
-      "Birds"
-    ],
     "author": "Paul Celan",
     "country": "Romania, France",
     "imageLink": "images/poems-paul-celan.jpg",
@@ -248,13 +150,7 @@
     "year": 1952
   },
   {
-    "categories": [
-      "French fiction",
-      "Fiction",
-      "Literary Criticism",
-      "Education"
-    ],
-    "author": "Louis-Ferdinand Céline",
+    "author": "Louis-Ferdinand C\u00e9line",
     "country": "France",
     "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
     "language": "French",
@@ -264,11 +160,6 @@
     "year": 1932
   },
   {
-    "categories": [
-      "Literary Criticism",
-      "Fiction",
-      "Literary Collections"
-    ],
     "author": "Miguel de Cervantes",
     "country": "Spain",
     "imageLink": "images/don-quijote-de-la-mancha.jpg",
@@ -279,13 +170,6 @@
     "year": 1610
   },
   {
-    "categories": [
-      "Literary Criticism",
-      "Poetry",
-      "Fiction",
-      "Juvenile Nonfiction",
-      "Christian pilgrims and pilgrimages in literature"
-    ],
     "author": "Geoffrey Chaucer",
     "country": "England",
     "imageLink": "images/the-canterbury-tales.jpg",
@@ -296,14 +180,6 @@
     "year": 1450
   },
   {
-    "categories": [
-      "Philosophy",
-      "Literary Criticism",
-      "History",
-      "Language Arts & Disciplines",
-      "Political Science",
-      "Juvenile Nonfiction"
-    ],
     "author": "Anton Chekhov",
     "country": "Russia",
     "imageLink": "images/stories-of-anton-chekhov.jpg",
@@ -314,13 +190,6 @@
     "year": 1886
   },
   {
-    "categories": [
-      "Latin America",
-      "Literary Criticism",
-      "Fiction",
-      "Juvenile Nonfiction",
-      "Revolutions in literature"
-    ],
     "author": "Joseph Conrad",
     "country": "United Kingdom",
     "imageLink": "images/nostromo.jpg",
@@ -331,16 +200,6 @@
     "year": 1904
   },
   {
-    "categories": [
-      "Foreign Language Study",
-      "England",
-      "Health & Fitness",
-      "Social Science",
-      "Reference",
-      "Fiction",
-      "Juvenile Fiction",
-      "Literary Collections"
-    ],
     "author": "Charles Dickens",
     "country": "United Kingdom",
     "imageLink": "images/great-expectations.jpg",
@@ -351,11 +210,6 @@
     "year": 1861
   },
   {
-    "categories": [
-      "Fiction",
-      "Fate and fatalism",
-      "Literary Criticism"
-    ],
     "author": "Denis Diderot",
     "country": "France",
     "imageLink": "images/jacques-the-fatalist.jpg",
@@ -366,16 +220,7 @@
     "year": 1796
   },
   {
-    "categories": [
-      "Fiction",
-      "Philosophy",
-      "History",
-      "Social Science",
-      "Architecture",
-      "Literary Criticism",
-      "Performing Arts"
-    ],
-    "author": "Alfred Döblin",
+    "author": "Alfred D\u00f6blin",
     "country": "Germany",
     "imageLink": "images/berlin-alexanderplatz.jpg",
     "language": "German",
@@ -385,14 +230,6 @@
     "year": 1929
   },
   {
-    "categories": [
-      "Murder",
-      "Fiction",
-      "History",
-      "Literary Criticism",
-      "Juvenile Nonfiction",
-      "Social Science"
-    ],
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "images/crime-and-punishment.jpg",
@@ -403,13 +240,6 @@
     "year": 1866
   },
   {
-    "categories": [
-      "Fiction",
-      "Drama",
-      "Russian fiction",
-      "Science",
-      "Literary Criticism"
-    ],
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "images/the-idiot.jpg",
@@ -420,16 +250,6 @@
     "year": 1869
   },
   {
-    "categories": [
-      "Russian literature",
-      "Fiction",
-      "Literary Collections",
-      "Philosophy",
-      "History",
-      "Language Arts & Disciplines",
-      "Drama",
-      "Mesmerism"
-    ],
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "images/the-possessed.jpg",
@@ -440,14 +260,6 @@
     "year": 1872
   },
   {
-    "categories": [
-      "Literary Collections",
-      "Foreign Language Study",
-      "Fiction",
-      "History",
-      "Literary Criticism",
-      "Political Science"
-    ],
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "images/the-brothers-karamazov.jpg",
@@ -458,10 +270,6 @@
     "year": 1880
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism"
-    ],
     "author": "George Eliot",
     "country": "United Kingdom",
     "imageLink": "images/middlemarch.jpg",
@@ -472,13 +280,6 @@
     "year": 1871
   },
   {
-    "categories": [
-      "Juvenile Fiction",
-      "Juvenile Nonfiction",
-      "African American men in literature",
-      "Fiction",
-      "Social Science"
-    ],
     "author": "Ralph Ellison",
     "country": "United States",
     "imageLink": "images/invisible-man.jpg",
@@ -489,12 +290,6 @@
     "year": 1952
   },
   {
-    "categories": [
-      "Religion",
-      "History",
-      "Drama",
-      "Literary Criticism"
-    ],
     "author": "Euripides",
     "country": "Greece",
     "imageLink": "images/medea.jpg",
@@ -505,13 +300,6 @@
     "year": -431
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Study Aids",
-      "Religion",
-      "Juvenile Nonfiction"
-    ],
     "author": "William Faulkner",
     "country": "United States",
     "imageLink": "images/absalom-absalom.jpg",
@@ -522,15 +310,6 @@
     "year": 1936
   },
   {
-    "categories": [
-      "Education",
-      "Literary Criticism",
-      "Juvenile Nonfiction",
-      "History",
-      "Fiction",
-      "Family",
-      "Study Aids"
-    ],
     "author": "William Faulkner",
     "country": "United States",
     "imageLink": "images/the-sound-and-the-fury.jpg",
@@ -541,12 +320,6 @@
     "year": 1929
   },
   {
-    "categories": [
-      "Fiction",
-      "Adultery",
-      "Literary Criticism",
-      "Psychoanalysis and literature"
-    ],
     "author": "Gustave Flaubert",
     "country": "France",
     "imageLink": "images/madame-bovary.jpg",
@@ -557,13 +330,6 @@
     "year": 1857
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Education",
-      "Language Arts & Disciplines",
-      "Social Science"
-    ],
     "author": "Gustave Flaubert",
     "country": "France",
     "imageLink": "images/l-education-sentimentale.jpg",
@@ -574,11 +340,7 @@
     "year": 1869
   },
   {
-    "categories": [
-      "Poetry",
-      "Literary Criticism"
-    ],
-    "author": "Federico García Lorca",
+    "author": "Federico Garc\u00eda Lorca",
     "country": "Spain",
     "imageLink": "images/gypsy-ballads.jpg",
     "language": "Spanish",
@@ -588,14 +350,7 @@
     "year": 1928
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Language Arts & Disciplines",
-      "Education",
-      "Study Aids"
-    ],
-    "author": "Gabriel García Márquez",
+    "author": "Gabriel Garc\u00eda M\u00e1rquez",
     "country": "Colombia",
     "imageLink": "images/one-hundred-years-of-solitude.jpg",
     "language": "Spanish",
@@ -605,12 +360,7 @@
     "year": 1967
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Drama"
-    ],
-    "author": "Gabriel García Márquez",
+    "author": "Gabriel Garc\u00eda M\u00e1rquez",
     "country": "Colombia",
     "imageLink": "images/love-in-the-time-of-cholera.jpg",
     "language": "Spanish",
@@ -620,13 +370,6 @@
     "year": 1985
   },
   {
-    "categories": [
-      "Drama",
-      "Music",
-      "Fiction",
-      "Literary Collections",
-      "Social Science"
-    ],
     "author": "Johann Wolfgang von Goethe",
     "country": "Saxe-Weimar",
     "imageLink": "images/faust.jpg",
@@ -637,10 +380,6 @@
     "year": 1832
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism"
-    ],
     "author": "Nikolai Gogol",
     "country": "Russia",
     "imageLink": "images/dead-souls.jpg",
@@ -651,12 +390,7 @@
     "year": 1842
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Biography & Autobiography"
-    ],
-    "author": "Günter Grass",
+    "author": "G\u00fcnter Grass",
     "country": "Germany",
     "imageLink": "images/the-tin-drum.jpg",
     "language": "German",
@@ -666,14 +400,7 @@
     "year": 1959
   },
   {
-    "categories": [
-      "Outlaws",
-      "Fiction",
-      "Literary Criticism",
-      "Political Science",
-      "Devil"
-    ],
-    "author": "João Guimarães Rosa",
+    "author": "Jo\u00e3o Guimar\u00e3es Rosa",
     "country": "Brazil",
     "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
     "language": "Portuguese",
@@ -683,14 +410,6 @@
     "year": 1956
   },
   {
-    "categories": [
-      "Biography & Autobiography",
-      "History",
-      "Juvenile Fiction",
-      "Medical",
-      "Psychology",
-      "Social Science"
-    ],
     "author": "Knut Hamsun",
     "country": "Norway",
     "imageLink": "images/hunger.jpg",
@@ -701,10 +420,6 @@
     "year": 1890
   },
   {
-    "categories": [
-      "Fiction",
-      "Education"
-    ],
     "author": "Ernest Hemingway",
     "country": "United States",
     "imageLink": "images/the-old-man-and-the-sea.jpg",
@@ -715,12 +430,6 @@
     "year": 1952
   },
   {
-    "categories": [
-      "Poetry",
-      "History",
-      "Achilles (Greek mythology) in literature",
-      "Literary Criticism"
-    ],
     "author": "Homer",
     "country": "Greece",
     "imageLink": "images/the-iliad-of-homer.jpg",
@@ -731,13 +440,6 @@
     "year": -735
   },
   {
-    "categories": [
-      "History",
-      "Fiction",
-      "Epic poetry, Greek",
-      "Sports & Recreation",
-      "Poetry"
-    ],
     "author": "Homer",
     "country": "Greece",
     "imageLink": "images/the-odyssey-of-homer.jpg",
@@ -748,11 +450,6 @@
     "year": -800
   },
   {
-    "categories": [
-      "Fiction",
-      "Drama",
-      "Literary Criticism"
-    ],
     "author": "Henrik Ibsen",
     "country": "Norway",
     "imageLink": "images/a-Dolls-house.jpg",
@@ -763,10 +460,6 @@
     "year": 1879
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism"
-    ],
     "author": "James Joyce",
     "country": "Irish Free State",
     "imageLink": "images/ulysses.jpg",
@@ -777,14 +470,6 @@
     "year": 1922
   },
   {
-    "categories": [
-      "Philosophy",
-      "Literary Criticism",
-      "History",
-      "Language Arts & Disciplines",
-      "Political Science",
-      "Juvenile Nonfiction"
-    ],
     "author": "Franz Kafka",
     "country": "Czechoslovakia",
     "imageLink": "images/stories-of-franz-kafka.jpg",
@@ -795,12 +480,6 @@
     "year": 1924
   },
   {
-    "categories": [
-      "Fiction",
-      "Biography & Autobiography",
-      "German fiction",
-      "History"
-    ],
     "author": "Franz Kafka",
     "country": "Czechoslovakia",
     "imageLink": "images/the-trial.jpg",
@@ -811,14 +490,6 @@
     "year": 1925
   },
   {
-    "categories": [
-      "Fiction",
-      "Juvenile Fiction",
-      "Young Adult Fiction",
-      "Art",
-      "Religion",
-      "History"
-    ],
     "author": "Franz Kafka",
     "country": "Czechoslovakia",
     "imageLink": "images/the-castle.jpg",
@@ -829,12 +500,7 @@
     "year": 1926
   },
   {
-    "categories": [
-      "Drama",
-      "Literary Collections",
-      "Sanskrit drama"
-    ],
-    "author": "Kālidāsa",
+    "author": "K\u0101lid\u0101sa",
     "country": "India",
     "imageLink": "images/the-recognition-of-shakuntala.jpg",
     "language": "Sanskrit",
@@ -844,14 +510,6 @@
     "year": 150
   },
   {
-    "categories": [
-      "Fiction",
-      "Philosophy",
-      "History",
-      "Juvenile Fiction",
-      "Guilt",
-      "Biography & Autobiography"
-    ],
     "author": "Yasunari Kawabata",
     "country": "Japan",
     "imageLink": "images/the-sound-of-the-mountain.jpg",
@@ -862,12 +520,6 @@
     "year": 1954
   },
   {
-    "categories": [
-      "Fiction",
-      "Greek fiction, Modern",
-      "Greek fiction",
-      "Biography & Autobiography"
-    ],
     "author": "Nikos Kazantzakis",
     "country": "Greece",
     "imageLink": "images/zorba-the-greek.jpg",
@@ -878,13 +530,6 @@
     "year": 1946
   },
   {
-    "categories": [
-      "Families",
-      "Fiction",
-      "Literary Criticism",
-      "History",
-      "English literature"
-    ],
     "author": "D. H. Lawrence",
     "country": "United Kingdom",
     "imageLink": "images/sons-and-lovers.jpg",
@@ -895,14 +540,7 @@
     "year": 1913
   },
   {
-    "categories": [
-      "Fiction",
-      "Dams",
-      "Historic sites",
-      "Self-Help",
-      "African American schools"
-    ],
-    "author": "Halldór Laxness",
+    "author": "Halld\u00f3r Laxness",
     "country": "Iceland",
     "imageLink": "images/independent-people.jpg",
     "language": "Icelandic",
@@ -912,12 +550,6 @@
     "year": 1934
   },
   {
-    "categories": [
-      "Poetry",
-      "Literary Criticism",
-      "American poetry",
-      "Scotland"
-    ],
     "author": "Giacomo Leopardi",
     "country": "Italy",
     "imageLink": "images/poems-giacomo-leopardi.jpg",
@@ -928,14 +560,6 @@
     "year": 1818
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Colchester (England)",
-      "Biography & Autobiography",
-      "Foreign Language Study",
-      "Health & Fitness"
-    ],
     "author": "Doris Lessing",
     "country": "United Kingdom",
     "imageLink": "images/the-golden-notebook.jpg",
@@ -946,15 +570,6 @@
     "year": 1962
   },
   {
-    "categories": [
-      "Juvenile Fiction",
-      "Adventure stories",
-      "Children's stories",
-      "Biography & Autobiography",
-      "Longstocking, Pippi (Fictitious character)",
-      "Education",
-      "Literary Criticism"
-    ],
     "author": "Astrid Lindgren",
     "country": "Sweden",
     "imageLink": "images/pippi-longstocking.jpg",
@@ -965,12 +580,6 @@
     "year": 1945
   },
   {
-    "categories": [
-      "Biography & Autobiography",
-      "Music",
-      "Civil service",
-      "Fiction"
-    ],
     "author": "Lu Xun",
     "country": "China",
     "imageLink": "images/diary-of-a-madman.jpg",
@@ -981,13 +590,6 @@
     "year": 1918
   },
   {
-    "categories": [
-      "Fiction",
-      "Political Science",
-      "Literary Criticism",
-      "Biography & Autobiography",
-      "Religion"
-    ],
     "author": "Naguib Mahfouz",
     "country": "Egypt",
     "imageLink": "images/children-of-gebelawi.jpg",
@@ -998,11 +600,6 @@
     "year": 1959
   },
   {
-    "categories": [
-      "Families",
-      "Literary Criticism",
-      "Foreign Language Study"
-    ],
     "author": "Thomas Mann",
     "country": "Germany",
     "imageLink": "images/buddenbrooks.jpg",
@@ -1013,15 +610,6 @@
     "year": 1901
   },
   {
-    "categories": [
-      "Fiction",
-      "History",
-      "Literary Criticism",
-      "Travel",
-      "Musicals",
-      "Juvenile Fiction",
-      "Juvenile Nonfiction"
-    ],
     "author": "Thomas Mann",
     "country": "Germany",
     "imageLink": "images/the-magic-mountain.jpg",
@@ -1032,14 +620,6 @@
     "year": 1924
   },
   {
-    "categories": [
-      "Whales",
-      "Fiction",
-      "Adventure stories",
-      "Juvenile Nonfiction",
-      "Study Aids",
-      "Readers"
-    ],
     "author": "Herman Melville",
     "country": "United States",
     "imageLink": "images/moby-dick.jpg",
@@ -1050,14 +630,6 @@
     "year": 1851
   },
   {
-    "categories": [
-      "Business & Economics",
-      "Literary Collections",
-      "Art",
-      "Biography & Autobiography",
-      "History",
-      "Philosophy"
-    ],
     "author": "Michel de Montaigne",
     "country": "France",
     "imageLink": "images/essais.jpg",
@@ -1068,12 +640,6 @@
     "year": 1595
   },
   {
-    "categories": [
-      "History",
-      "Literary Criticism",
-      "Music",
-      "Massachusetts"
-    ],
     "author": "Elsa Morante",
     "country": "Italy",
     "imageLink": "images/history.jpg",
@@ -1084,14 +650,6 @@
     "year": 1974
   },
   {
-    "categories": [
-      "Fiction",
-      "African Americans",
-      "African American women in literature",
-      "Literary Criticism",
-      "Juvenile Nonfiction",
-      "Literary Collections"
-    ],
     "author": "Toni Morrison",
     "country": "United States",
     "imageLink": "images/beloved.jpg",
@@ -1102,13 +660,6 @@
     "year": 1987
   },
   {
-    "categories": [
-      "Aristocracy (Social class)",
-      "Biography & Autobiography",
-      "Fiction",
-      "Literary Criticism",
-      "Painting, Japanese"
-    ],
     "author": "Murasaki Shikibu",
     "country": "Japan",
     "imageLink": "images/the-tale-of-genji.jpg",
@@ -1119,13 +670,6 @@
     "year": 1006
   },
   {
-    "categories": [
-      "Literary Criticism",
-      "Fiction",
-      "Juvenile Nonfiction",
-      "German fiction",
-      "Literary Collections"
-    ],
     "author": "Robert Musil",
     "country": "Austria",
     "imageLink": "images/the-man-without-qualities.jpg",
@@ -1136,13 +680,6 @@
     "year": 1931
   },
   {
-    "categories": [
-      "Fiction",
-      "Intergenerational relations",
-      "Literary Criticism",
-      "Performing Arts",
-      "Drama"
-    ],
     "author": "Vladimir Nabokov",
     "country": "Russia/United States",
     "imageLink": "images/lolita.jpg",
@@ -1153,17 +690,6 @@
     "year": 1955
   },
   {
-    "categories": [
-      "Drama",
-      "Political Science",
-      "Fiction",
-      "Education",
-      "History",
-      "Prophecies",
-      "Literary Criticism",
-      "Dystopias in literature",
-      "Foreign Language Study"
-    ],
     "author": "George Orwell",
     "country": "United Kingdom",
     "imageLink": "images/nineteen-eighty-four.jpg",
@@ -1174,12 +700,6 @@
     "year": 1949
   },
   {
-    "categories": [
-      "Poetry",
-      "Literary Criticism",
-      "Drama",
-      "Fiction"
-    ],
     "author": "Ovid",
     "country": "Roman Empire",
     "imageLink": "images/the-metamorphoses-of-ovid.jpg",
@@ -1190,13 +710,6 @@
     "year": 100
   },
   {
-    "categories": [
-      "Poets, Portuguese 20th century Biography",
-      "Fiction",
-      "Literary Criticism",
-      "Foreign Language Study",
-      "Poetry"
-    ],
     "author": "Fernando Pessoa",
     "country": "Portugal",
     "imageLink": "images/the-book-of-disquiet.jpg",
@@ -1207,15 +720,6 @@
     "year": 1928
   },
   {
-    "categories": [
-      "American literature",
-      "Fiction",
-      "Literary Collections",
-      "Literary Criticism",
-      "Juvenile Fiction",
-      "Children's stories",
-      "Social Science"
-    ],
     "author": "Edgar Allan Poe",
     "country": "United States",
     "imageLink": "images/tales-and-poems-of-edgar-allan-poe.jpg",
@@ -1226,12 +730,6 @@
     "year": 1950
   },
   {
-    "categories": [
-      "Fiction",
-      "Art",
-      "France",
-      "Literary Criticism"
-    ],
     "author": "Marcel Proust",
     "country": "France",
     "imageLink": "images/a-la-recherche-du-temps-perdu.jpg",
@@ -1242,11 +740,7 @@
     "year": 1920
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism"
-    ],
-    "author": "François Rabelais",
+    "author": "Fran\u00e7ois Rabelais",
     "country": "France",
     "imageLink": "images/gargantua-and-pantagruel.jpg",
     "language": "French",
@@ -1256,31 +750,16 @@
     "year": 1533
   },
   {
-    "categories": [
-      "Fiction",
-      "Mexico",
-      "Domestic fiction",
-      "Literary Collections",
-      "Study Aids",
-      "History"
-    ],
     "author": "Juan Rulfo",
     "country": "Mexico",
     "imageLink": "images/pedro-paramo.jpg",
     "language": "Spanish",
     "link": "https://en.wikipedia.org/wiki/Pedro_P%C3%A1ramo\n",
     "pages": 124,
-    "title": "Pedro Páramo",
+    "title": "Pedro P\u00e1ramo",
     "year": 1955
   },
   {
-    "categories": [
-      "Religion",
-      "Fiction",
-      "Social Science",
-      "History",
-      "Literary Criticism"
-    ],
     "author": "Rumi",
     "country": "Sultanate of Rum",
     "imageLink": "images/the-masnavi.jpg",
@@ -1291,13 +770,6 @@
     "year": 1236
   },
   {
-    "categories": [
-      "Fiction",
-      "Drama",
-      "Literary Criticism",
-      "Developing countries",
-      "Religion"
-    ],
     "author": "Salman Rushdie",
     "country": "United Kingdom, India",
     "imageLink": "images/midnights-children.jpg",
@@ -1308,13 +780,6 @@
     "year": 1981
   },
   {
-    "categories": [
-      "Religion",
-      "Slavery",
-      "Science",
-      "Business & Economics",
-      "Literary Collections"
-    ],
     "author": "Saadi",
     "country": "Persia, Persian Empire",
     "imageLink": "images/bostan.jpg",
@@ -1325,13 +790,6 @@
     "year": 1257
   },
   {
-    "categories": [
-      "Arabs",
-      "Fiction",
-      "Arabic fiction",
-      "History",
-      "Science"
-    ],
     "author": "Tayeb Salih",
     "country": "Sudan",
     "imageLink": "images/season-of-migration-to-the-north.jpg",
@@ -1342,17 +800,7 @@
     "year": 1966
   },
   {
-    "categories": [
-      "Fiction",
-      "Art",
-      "Blind",
-      "Drama",
-      "Health & Fitness",
-      "Medical",
-      "Philosophy",
-      "Religion"
-    ],
-    "author": "José Saramago",
+    "author": "Jos\u00e9 Saramago",
     "country": "Portugal",
     "imageLink": "images/blindness.jpg",
     "language": "Portuguese",
@@ -1362,13 +810,6 @@
     "year": 1995
   },
   {
-    "categories": [
-      "Fathers",
-      "Literary Criticism",
-      "Drama",
-      "English literature",
-      "Literary Collections"
-    ],
     "author": "William Shakespeare",
     "country": "England",
     "imageLink": "images/hamlet.jpg",
@@ -1379,13 +820,6 @@
     "year": 1603
   },
   {
-    "categories": [
-      "Aging parents",
-      "Drama",
-      "Literary Criticism",
-      "Juvenile Nonfiction",
-      "Juvenile Fiction"
-    ],
     "author": "William Shakespeare",
     "country": "England",
     "imageLink": "images/king-lear.jpg",
@@ -1396,11 +830,6 @@
     "year": 1608
   },
   {
-    "categories": [
-      "Drama",
-      "Literary Criticism",
-      "Interracial marriage"
-    ],
     "author": "William Shakespeare",
     "country": "England",
     "imageLink": "images/othello.jpg",
@@ -1411,12 +840,6 @@
     "year": 1609
   },
   {
-    "categories": [
-      "Literary Collections",
-      "Fiction",
-      "Drama",
-      "Electronic books"
-    ],
     "author": "Sophocles",
     "country": "Greece",
     "imageLink": "images/oedipus-the-king.jpg",
@@ -1427,13 +850,6 @@
     "year": -430
   },
   {
-    "categories": [
-      "Fiction",
-      "History",
-      "Literary Collections",
-      "Foreign Language Study",
-      "Literary Criticism"
-    ],
     "author": "Stendhal",
     "country": "France",
     "imageLink": "images/le-rouge-et-le-noir.jpg",
@@ -1444,13 +860,6 @@
     "year": 1830
   },
   {
-    "categories": [
-      "Fiction",
-      "English fiction",
-      "England",
-      "Biography & Autobiography",
-      "Sterne, Laurence, 1713-1768"
-    ],
     "author": "Laurence Sterne",
     "country": "England",
     "imageLink": "images/the-life-and-opinions-of-tristram-shandy.jpg",
@@ -1461,12 +870,6 @@
     "year": 1760
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Physician and patient",
-      "History"
-    ],
     "author": "Italo Svevo",
     "country": "Italy",
     "imageLink": "images/confessions-of-zeno.jpg",
@@ -1477,14 +880,6 @@
     "year": 1923
   },
   {
-    "categories": [
-      "Fantasy",
-      "Fiction",
-      "Political satire, English",
-      "Literary Criticism",
-      "Juvenile Fiction",
-      "Study Aids"
-    ],
     "author": "Jonathan Swift",
     "country": "Ireland",
     "imageLink": "images/gullivers-travels.jpg",
@@ -1495,14 +890,6 @@
     "year": 1726
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Peace",
-      "Philosophy",
-      "Photography",
-      "History"
-    ],
     "author": "Leo Tolstoy",
     "country": "Russia",
     "imageLink": "images/war-and-peace.jpg",
@@ -1513,12 +900,6 @@
     "year": 1867
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Juvenile Fiction",
-      "Literary Collections"
-    ],
     "author": "Leo Tolstoy",
     "country": "Russia",
     "imageLink": "images/anna-karenina.jpg",
@@ -1529,12 +910,6 @@
     "year": 1877
   },
   {
-    "categories": [
-      "Drama",
-      "Fiction",
-      "Literary Collections",
-      "Foreign Language Study"
-    ],
     "author": "Leo Tolstoy",
     "country": "Russia",
     "imageLink": "images/the-death-of-ivan-ilyich.jpg",
@@ -1545,15 +920,6 @@
     "year": 1886
   },
   {
-    "categories": [
-      "Fiction",
-      "American wit and humor",
-      "Juvenile Nonfiction",
-      "Juvenile Fiction",
-      "Literary Criticism",
-      "Education",
-      "Foreign Language Study"
-    ],
     "author": "Mark Twain",
     "country": "United States",
     "imageLink": "images/the-adventures-of-huckleberry-finn.jpg",
@@ -1564,13 +930,6 @@
     "year": 1884
   },
   {
-    "categories": [
-      "Hindu mythology",
-      "Rāma (Hindu deity)",
-      "Graphic novels",
-      "Religion",
-      "India"
-    ],
     "author": "Valmiki",
     "country": "India",
     "imageLink": "images/ramayana.jpg",
@@ -1581,15 +940,6 @@
     "year": -450
   },
   {
-    "categories": [
-      "Fiction",
-      "Aeneas (Legendary character) in literature",
-      "Poetry",
-      "Study Aids",
-      "Aeneas (Legendary character)",
-      "Literary Criticism",
-      "History"
-    ],
     "author": "Virgil",
     "country": "Roman Empire",
     "imageLink": "images/the-aeneid.jpg",
@@ -1600,16 +950,6 @@
     "year": -23
   },
   {
-    "categories": [
-      "Hindu mythology",
-      "Religion",
-      "Poetry",
-      "Fiction",
-      "Philosophy",
-      "Epic literature, Sanskrit",
-      "Literary Criticism",
-      "Mahābhārata"
-    ],
     "author": "Vyasa",
     "country": "India",
     "imageLink": "images/the-mahab-harata.jpg",
@@ -1620,13 +960,6 @@
     "year": -700
   },
   {
-    "categories": [
-      "Literary Collections",
-      "Poetry",
-      "Literary Criticism",
-      "American poetry",
-      "Study Aids"
-    ],
     "author": "Walt Whitman",
     "country": "United States",
     "imageLink": "images/leaves-of-grass.jpg",
@@ -1637,11 +970,6 @@
     "year": 1855
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Domestic fiction"
-    ],
     "author": "Virginia Woolf",
     "country": "United Kingdom",
     "imageLink": "images/mrs-dalloway.jpg",
@@ -1652,12 +980,6 @@
     "year": 1925
   },
   {
-    "categories": [
-      "Fiction",
-      "Literary Criticism",
-      "Juvenile Nonfiction",
-      "Juvenile Fiction"
-    ],
     "author": "Virginia Woolf",
     "country": "United Kingdom",
     "imageLink": "images/to-the-lighthouse.jpg",
@@ -1668,13 +990,6 @@
     "year": 1927
   },
   {
-    "categories": [
-      "Study Aids",
-      "Fiction",
-      "Biography & Autobiography",
-      "Emperors",
-      "Art"
-    ],
     "author": "Marguerite Yourcenar",
     "country": "France/Belgium",
     "imageLink": "images/memoirs-of-hadrian.jpg",

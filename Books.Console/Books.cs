@@ -34,7 +34,7 @@ namespace Books.ConsoleApp
     {
         private string booksJsonFile;
 
-        public BooksJsonPersist(string booksFile = "books1.json")
+        public BooksJsonPersist(string booksFile = "books.json")
         {
             booksJsonFile = booksFile;
         }
@@ -42,7 +42,7 @@ namespace Books.ConsoleApp
         public Book[] Read()
         {
             var rawJsonBooks = File.ReadAllTextAsync(booksJsonFile)
-                // this (the .Result)is blocking the "UI"/"Main" thread - done for simplicity 
+                // this (the .Result)is blocking the "UI"/"Main" thread - done for simplicity
                 // but utterly and very and fundamentaly wrong for production apps!
                 .Result;
 
