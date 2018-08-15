@@ -25,16 +25,16 @@ namespace Books.ConsoleApp
         public int year { get; set; }
     }
 
-    public interface IBookPersist
+    public interface IBooksSource
     {
         Book[] Read();
     }
 
-    public class BooksJsonPersist : IBookPersist
+    public class BooksJsonSource : IBooksSource
     {
         private string booksJsonFile;
 
-        public BooksJsonPersist(string booksFile = "books.json")
+        public BooksJsonSource(string booksFile = "books.json")
         {
             booksJsonFile = booksFile;
         }
