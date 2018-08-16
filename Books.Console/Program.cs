@@ -12,7 +12,7 @@ namespace Books.ConsoleApp
 
         // we will use these as local global state
         private static List<BooksByAuthor> BooksByAuthorCatalog;
-        private static int catalogNextEntryIndex;
+
         public static void Main()
         {
             Book[] books = BooksSource.Read();
