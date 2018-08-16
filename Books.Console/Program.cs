@@ -23,12 +23,13 @@ namespace Books.ConsoleApp
             {
                 var book = books[i];
 
-                if (AuthorIsAlreadyCataloged(book))
+                if (AuthorIsAlreadyCataloged(book.author))
                 {
                     // there are some(1 or more) books by this author already found and catalogued
-                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book);
+                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book.author);
 
-                    BooksByAuthorCatalog[authorCatalogIndex].Books.Add(book);
+                    var existingBooks = BooksByAuthorCatalog[authorCatalogIndex].Books;
+                    existingBooks.Add(book);
                 }
                 else
                 {
@@ -42,20 +43,8 @@ namespace Books.ConsoleApp
             Console.WriteLine("Finished cataloguing authors. (press a key to exit...)");
             Console.ReadLine();
         }
-
-       
-
-        private static void CatalogueNewAuthor(Book b)
-        {
-            // there are NONE books by this author already found and cataloged
-           
-            var newBooksList = new List<Book> { b };
-            var authorAndBooks = new BooksByAuthor(b.author, newBooksList);
-            // push that to the catalog
-            BooksByAuthorCatalog.Add(authorAndBooks);
-        }
-
-        private static bool AuthorIsAlreadyCataloged(Book b)
+        
+        private static bool AuthorIsAlreadyCataloged(string author)
         {
             var authorAlreadyCatalogued = false;
 
@@ -63,7 +52,7 @@ namespace Books.ConsoleApp
             for (int j = 0; j < BooksByAuthorCatalog.Count; j++)
             {
                 var entry = BooksByAuthorCatalog[j];
-                if (entry != null && entry.Author == b.author)
+                if (entry.Author == author)
                 {
                     authorAlreadyCatalogued = true;
                     break;
@@ -73,7 +62,7 @@ namespace Books.ConsoleApp
             return authorAlreadyCatalogued;
         }
 
-        private static int LocateAuthorAlreadyCataloged(Book b)
+        private static int LocateAuthorAlreadyCataloged(string author)
         {
             var authorCatalogIndex = 0;
 
@@ -81,7 +70,7 @@ namespace Books.ConsoleApp
             for (int j = 0; j < BooksByAuthorCatalog.Count; j++)
             {
                 var entry = BooksByAuthorCatalog[j];
-                if (entry != null && entry.Author == b.author)
+                if (entry.Author == author)
                 {
                     authorCatalogIndex = j;
                     break;
@@ -89,6 +78,17 @@ namespace Books.ConsoleApp
             }
 
             return authorCatalogIndex;
+        }
+
+
+        private static void CatalogueNewAuthor(Book b)
+        {
+            // there are NONE books by this author already found and cataloged
+
+            var newBooksList = new List<Book> { b };
+            var authorAndBooks = new BooksByAuthor(b.author, newBooksList);
+
+            BooksByAuthorCatalog.Add(authorAndBooks);
         }
 
 
