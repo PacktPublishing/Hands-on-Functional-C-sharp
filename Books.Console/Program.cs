@@ -10,7 +10,7 @@ namespace Books.ConsoleApp
     {
         private static IBooksSource BooksSource = new BooksJsonSource();
 
-        // we will use these as local global state
+        // we will use these as global state
         private static List<BooksByAuthor> BooksByAuthorCatalog;
 
         public static void Main()
