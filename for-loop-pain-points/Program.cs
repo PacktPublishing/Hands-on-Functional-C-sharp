@@ -7,14 +7,13 @@ namespace for_loop_pain_points
     {
         static void Main(string[] args)
         {
-            var books = new List<Book>();
+            var collection = new List<Book>();
 
-            for (int i = 0; i < books.Count; i++)
+            for (int i = 0; i < collection.Count; i++)
             {
-                var book = books[i];
-                // do stuff with book
+                var item = collection[i];
+                // do stuff with item
             }
-
 
             // Solve();
         }
