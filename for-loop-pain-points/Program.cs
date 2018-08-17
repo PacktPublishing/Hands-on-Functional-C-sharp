@@ -45,6 +45,9 @@ namespace for_loop_pain_points
             this.books = books;
         }
 
+
+
+
         private static void OutputBooksByAuthor(List<BooksByAuthor> catalogue)
         {
             for (int i = 0; i < catalogue.Count; i++)
@@ -58,7 +61,17 @@ namespace for_loop_pain_points
                 Console.WriteLine(Environment.NewLine);
             }
         }
+
+
+
+
+
+
     }
+
+
+
+
 
     public class Book
     {
