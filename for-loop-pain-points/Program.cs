@@ -21,12 +21,15 @@ namespace for_loop_pain_points
         public static void Solve()
         {
             // having the numbers 1,2,2,3,4,4,5,7,9....n (limiting the collecion for brevity)
-            var x = new List<int> { 1, 2, 2, 3, 4, 4, 5, 7, 9, 10, 11, 11, 12, 13, 15 };
+            var x = new List<int> { 1, 2, 2, 3, 3, 3, 4, 5, 7, 9, 10, 11, 11, 12, 13, 15 };
 
-            // and using the least ammont of memory and processing power (no LINQ)- remove the duplicates         
-            for (int i = 0; i < x.Count; i++)
+            // remove the duplicates - using the least ammont of memory and processing power
+            for (int i = 0; i < x.Count - 1; i++)
             {
-                x.RemoveAt(i);
+                if (x[i] == x[i + 1])
+                {
+                    x.RemoveAt(i + 1);
+                }
             }
         }
     }
