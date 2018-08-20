@@ -15,13 +15,18 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
-            Book[] books = BooksSource.Read();
+            // was Book[] books = BookSource.Read();
+            IEnumerable<Book> books = BooksSource.Read();
             
             BooksByAuthorCatalog = new List<BooksByAuthor>();
-            
-            for (int i = 0; i < books.Length; i++)
+
+            // was 
+            // for (var i = 0; i < books.Length; i++) {
+            //    var book = books[i];
+            var booksEnumerator = books.GetEnumerator();
+            while(booksEnumerator.MoveNext())
             {
-                var book = books[i];
+                var book = booksEnumerator.Current;
 
                 if (AuthorIsAlreadyCataloged(book.author))
                 {
