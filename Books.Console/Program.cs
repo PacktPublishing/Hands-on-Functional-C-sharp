@@ -80,7 +80,6 @@ namespace Books.ConsoleApp
             return authorCatalogIndex;
         }
 
-
         private static void CatalogueNewAuthor(Book b)
         {
             // there are NONE books by this author already found and cataloged
