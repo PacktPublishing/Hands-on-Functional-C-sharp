@@ -2,6 +2,7 @@
 #region imports
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 #endregion
 namespace Books.ConsoleApp
@@ -15,16 +16,16 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
-            // was Book[] books = BookSource.Read();
+            //Book[] books = BooksSource.Read();
             IEnumerable<Book> books = BooksSource.Read();
-            
-            BooksByAuthorCatalog = new List<BooksByAuthor>();
 
-            // was 
-            // for (var i = 0; i < books.Length; i++) {
+            BooksByAuthorCatalog = new List<BooksByAuthor>();
+            
+            //for (var i = 0; i < books.Length; i++)
+            //{
             //    var book = books[i];
-            var booksEnumerator = books.GetEnumerator();
-            while(booksEnumerator.MoveNext())
+            IEnumerator<Book> booksEnumerator = books.GetEnumerator();
+            while (booksEnumerator.MoveNext())
             {
                 var book = booksEnumerator.Current;
 
@@ -48,7 +49,7 @@ namespace Books.ConsoleApp
             Console.WriteLine("Finished cataloguing authors. (press a key to exit...)");
             Console.ReadLine();
         }
-        
+
         private static bool AuthorIsAlreadyCataloged(string author)
         {
             var authorAlreadyCatalogued = false;
