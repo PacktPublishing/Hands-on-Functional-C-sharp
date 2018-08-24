@@ -16,19 +16,12 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
-            //Book[] books = BooksSource.Read();
             IEnumerable<Book> books = BooksSource.Read();
 
             BooksByAuthorCatalog = new List<BooksByAuthor>();
             
-            //for (var i = 0; i < books.Length; i++)
-            //{
-            //    var book = books[i];
-            IEnumerator<Book> booksEnumerator = books.GetEnumerator();
-            while (booksEnumerator.MoveNext())
+            foreach(var book in books)
             {
-                var book = booksEnumerator.Current;
-
                 if (AuthorIsAlreadyCataloged(book.author))
                 {
                     // there are some(1 or more) books by this author already found and catalogued
@@ -99,13 +92,12 @@ namespace Books.ConsoleApp
 
         private static void OutputBooksByAuthor()
         {
-            for (int i = 0; i < BooksByAuthorCatalog.Count; i++)
-            {
-                BooksByAuthor ba = BooksByAuthorCatalog[i];
+            foreach(var ba in BooksByAuthorCatalog)
+            { 
                 Console.Write("Author: {0,-28} Books: ", ba.Author);
-                for (int j = 0; j < ba.Books.Count; j++)
+                foreach (var book in ba.Books)
                 {
-                    Console.Write(ba.Books[j].title + ", ");
+                    Console.Write(book.title + ", ");
                 }
                 Console.Write(Environment.NewLine);
             }
