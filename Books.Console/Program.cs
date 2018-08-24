@@ -2,93 +2,125 @@
 #region imports
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 #endregion
 namespace Books.ConsoleApp
 {
     class Program
     {
-        private static IBookPersist bookPersist = new BooksJsonPersist();
+        private static IBooksSource BooksSource = new BooksJsonSource();
 
-        // we will use these as local global state
+        // we will use this as global state
         private static List<BooksByAuthor> BooksByAuthorCatalog;
 
         public static void Main()
         {
-            Book[] booksAll = bookPersist.Read();
+            //Book[] books = BooksSource.Read();
+            IEnumerable<Book> books = BooksSource.Read();
 
-            // catalogue - we would need at most booksAll lenght for the catalog -
-            // that would be the case that all books are by a different author
             BooksByAuthorCatalog = new List<BooksByAuthor>();
-
-            // look at booksArray from the perspective of IEnumerable - it is still an array but we choose to
-            // only expose the IEnumerable interface through the booksEnumerable
-            IEnumerable<Book> booksEnumerable = booksAll;
-
-            // the 'only' thing we can do with an enumerable is - get its enumerator
-            foreach (var b in booksEnumerable)
+            
+            //for (var i = 0; i < books.Length; i++)
+            //{
+            //    var book = books[i];
+            IEnumerator<Book> booksEnumerator = books.GetEnumerator();
+            while (booksEnumerator.MoveNext())
             {
-                var authorAlreadyCataloguedIndex = BooksByAuthorCatalog
-                    .FindIndex(entry => entry.author == b.author);
-                // if not such index if found then authorAlreadyCataloguedIndex would be -1
-                var authorAlreadyCatalogued = authorAlreadyCataloguedIndex > -1;
+                var book = booksEnumerator.Current;
 
-                if (authorAlreadyCatalogued)
+                if (AuthorIsAlreadyCataloged(book.author))
                 {
-                    AddNewTitleToAuthor(b, authorAlreadyCataloguedIndex);
+                    // there are some(1 or more) books by this author already found and catalogued
+                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book.author);
+
+                    var existingBooks = BooksByAuthorCatalog[authorCatalogIndex].Books;
+                    existingBooks.Add(book);
                 }
                 else
                 {
-                    CatalogueNewAuthor(b);
+                    CatalogueNewAuthor(book);
                 }
             }
 
-            // now we have a list that has all the authors catalogued
+            // now we have an list that has all the authors catalogued
             OutputBooksByAuthor();
 
             Console.WriteLine("Finished cataloguing authors. (press a key to exit...)");
             Console.ReadLine();
         }
 
-        private static void OutputBooksByAuthor()
+        private static bool AuthorIsAlreadyCataloged(string author)
         {
-            foreach (var ba in BooksByAuthorCatalog)
+            var authorAlreadyCatalogued = false;
+
+            // we'll iterate over the cataloge to find the author - if author's already been cataloged
+            for (int j = 0; j < BooksByAuthorCatalog.Count; j++)
             {
-                Console.Write("Author: {0,-28} Books: ", ba.author);
-                foreach (var book in ba.books)
+                var entry = BooksByAuthorCatalog[j];
+                if (entry.Author == author)
                 {
-                    Console.Write(book.title + ", ");
+                    authorAlreadyCatalogued = true;
+                    break;
                 }
-                Console.Write(Environment.NewLine);
             }
+
+            return authorAlreadyCatalogued;
         }
 
-        private static void AddNewTitleToAuthor(Book b, int authorCatalogIndex)
+        private static int LocateAuthorAlreadyCataloged(string author)
         {
-            var booksByThisAutorList = BooksByAuthorCatalog[authorCatalogIndex];
-            // take the current books by this author and add the next
-            booksByThisAutorList.books.Add(b);
+            var authorCatalogIndex = 0;
+
+            // we'll iterate over the cataloge to find the author's index
+            for (int j = 0; j < BooksByAuthorCatalog.Count; j++)
+            {
+                var entry = BooksByAuthorCatalog[j];
+                if (entry.Author == author)
+                {
+                    authorCatalogIndex = j;
+                    break;
+                }
+            }
+
+            return authorCatalogIndex;
         }
 
         private static void CatalogueNewAuthor(Book b)
         {
             // there are NONE books by this author already found and cataloged
-            var newBookList = new List<Book> { b };
-            var authorAndBooks = new BooksByAuthor(b.author, newBookList);
-            // push that to the catalog
+
+            var newBooksList = new List<Book> { b };
+            var authorAndBooks = new BooksByAuthor(b.author, newBooksList);
+
             BooksByAuthorCatalog.Add(authorAndBooks);
+        }
+
+
+        private static void OutputBooksByAuthor()
+        {
+            for (int i = 0; i < BooksByAuthorCatalog.Count; i++)
+            {
+                BooksByAuthor ba = BooksByAuthorCatalog[i];
+                Console.Write("Author: {0,-28} Books: ", ba.Author);
+                for (int j = 0; j < ba.Books.Count; j++)
+                {
+                    Console.Write(ba.Books[j].title + ", ");
+                }
+                Console.Write(Environment.NewLine);
+            }
         }
     }
 
     public class BooksByAuthor
     {
-        public readonly string author;
-        public readonly List<Book> books;
+        public readonly string Author;
+        public readonly List<Book> Books;
 
         public BooksByAuthor(string author, List<Book> books)
         {
-            this.author = author;
-            this.books = books;
+            Author = author;
+            Books = books;
         }
     }
 }
