@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 public class DemoLINQ
 {
@@ -17,10 +18,10 @@ public class DemoLINQ
             "The Godfather"
         };
 
-
         var longShows = shows
             .Where(s => s.Length > 15)
-            .Select(s => {
+            .Select(s =>
+            {
                 Console.WriteLine(s);
                 return s.Length;
             });
@@ -30,5 +31,25 @@ public class DemoLINQ
 
         // force the invocation - as no other way to "flesh" out the list
         longShows.ToList();
+
+        // we can force completion by any method requiring the whole collection
+
+        // Prepares the ordering - but does not go through - no one needs it yet
+        var ordered = shows.OrderBy(s =>
+        {
+            Console.Write(".");
+            return s.Length;
+        });
+
+        // aggregation methods - not lazy
+        var maxLength = shows.Max(s =>
+        {
+            Console.Write("/");
+            return s.Length;
+        });
+
+        Console.WriteLine($"maxLenght: {maxLength}");
+
+        // we never used "ordered" and therefore it was never actually computed/executed
     }
 }
