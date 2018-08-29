@@ -51,5 +51,15 @@ public class DemoLINQ
         Console.WriteLine($"maxLenght: {maxLength}");
 
         // we never used "ordered" and therefore it was never actually computed/executed
+
+
+        // foreach - not lazy
+        var t = new List<int>();
+        foreach (var item in shows)
+        {
+            Console.Write("+");
+            t.Add(item.Length);
+        }
+
     }
 }
