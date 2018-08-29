@@ -16,6 +16,8 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
+            DemoLINQ.Demo();
+
             IEnumerable<Book> books = BooksSource.Read();
 
             BooksByAuthorCatalog = new List<BooksByAuthor>();
