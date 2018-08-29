@@ -19,16 +19,14 @@ namespace Books.ConsoleApp
             IEnumerable<Book> books = BooksSource.Read();
 
             BooksByAuthorCatalog = new List<BooksByAuthor>();
-            
+
             foreach(var book in books)
             {
                 if (AuthorIsAlreadyCataloged(book.author))
                 {
                     // there are some(1 or more) books by this author already found and catalogued
-                    var authorCatalogIndex = LocateAuthorAlreadyCataloged(book.author);
-
-                    var existingBooks = BooksByAuthorCatalog[authorCatalogIndex].Books;
-                    existingBooks.Add(book);
+                    var authorAndBooks = LocateAuthorAlreadyCataloged(book.author);
+                    authorAndBooks.Books.Add(book);
                 }
                 else
                 {
@@ -45,38 +43,12 @@ namespace Books.ConsoleApp
 
         private static bool AuthorIsAlreadyCataloged(string author)
         {
-            var authorAlreadyCatalogued = false;
-
-            // we'll iterate over the cataloge to find the author - if author's already been cataloged
-            for (int j = 0; j < BooksByAuthorCatalog.Count; j++)
-            {
-                var entry = BooksByAuthorCatalog[j];
-                if (entry.Author == author)
-                {
-                    authorAlreadyCatalogued = true;
-                    break;
-                }
-            }
-
-            return authorAlreadyCatalogued;
+            return BooksByAuthorCatalog.Any(ba => ba.Author == author);
         }
 
-        private static int LocateAuthorAlreadyCataloged(string author)
+        private static BooksByAuthor LocateAuthorAlreadyCataloged(string author)
         {
-            var authorCatalogIndex = 0;
-
-            // we'll iterate over the cataloge to find the author's index
-            for (int j = 0; j < BooksByAuthorCatalog.Count; j++)
-            {
-                var entry = BooksByAuthorCatalog[j];
-                if (entry.Author == author)
-                {
-                    authorCatalogIndex = j;
-                    break;
-                }
-            }
-
-            return authorCatalogIndex;
+            return BooksByAuthorCatalog.First(ba => ba.Author == author);
         }
 
         private static void CatalogueNewAuthor(Book b)
@@ -93,7 +65,7 @@ namespace Books.ConsoleApp
         private static void OutputBooksByAuthor()
         {
             foreach(var ba in BooksByAuthorCatalog)
-            { 
+            {
                 Console.Write("Author: {0,-28} Books: ", ba.Author);
                 foreach (var book in ba.Books)
                 {
