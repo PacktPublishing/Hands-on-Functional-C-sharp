@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using Books.ConsoleApp;
 
 public class DemoAction
 {
@@ -21,7 +18,7 @@ public class DemoAction
         // outputs: String
 
         //type safety - squiggly
-        willTakeString(1);
+        willTakeString("1");
     }
 
     Action<string> takesString; // and does stuff with it

@@ -18,18 +18,19 @@ public class DemoFunc
     }
 
 
-    private void ContrivedMethod()
+    public void ContrivedMethod()
     {
         Func<string> helloWorldFunc = AsFunc("Hello World!");
         var helloWorld = Exec(helloWorldFunc);
-
+        // helloWorld == "Hello World!"
+        
         intFunc = AsFunc(1);
         var one = Exec(intFunc);
-        var isTrue = (one == intFunc());
+        // one == 1);
     }
 
 
-    private void SomewhatMoreRealisticMethod()
+    public void SomewhatMoreRealisticMethod()
     {
         // cant use var - because we need to tell the compiler what we'll describe
         Func<IEnumerable<BooksByAuthor>, string, bool> authorExists =
@@ -39,7 +40,7 @@ public class DemoFunc
         Func<IEnumerable<BooksByAuthor>, string, BooksByAuthor> getGataloguedAuthor =
             (booksByAuthor, authorName) => {
                 // can do complex stuff or help in debugging
-                return booksByAuthor.First(ba => ba.Author == authorName);
+                return booksByAuthor.FirstOrDefault(ba => ba.Author == authorName);
             };
 
 
