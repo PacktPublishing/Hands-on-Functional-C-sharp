@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Console", "Books.Console\Books.Console.csproj", "{4F6FCD28-E666-4FD7-B5E1-89C3C4A40A25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoLazy", "Books.Console\DemoLazy.csproj", "{4F6FCD28-E666-4FD7-B5E1-89C3C4A40A25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
