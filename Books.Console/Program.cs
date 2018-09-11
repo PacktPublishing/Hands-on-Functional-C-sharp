@@ -8,8 +8,7 @@ namespace DemoLazy
         {
             Lazy.Demo();
 
-            Console.WriteLine("\n--------- ----- --- ---------\n");
-            Console.WriteLine("Done. (press a key to exit...)");
+            Console.WriteLine("\n\nDone. (press a key to exit...)\n");
             Console.ReadLine();
         }
     }    

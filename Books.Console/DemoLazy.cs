@@ -29,10 +29,24 @@ public class Lazy
         Console.WriteLine("After lazy part - notice no lines printed out - yet \n--------- press key ---------");
         Console.ReadLine();
 
-        // force the invocation - as no other way to "flesh" out the list
-        // we can force completion by any method requiring the whole collection
+        // force the invocation - as no other way to "flesh out" the collection
+        // we can force completion by any method that requires all of the items to finish their job
+        // ToArray(), Count(), Max(), Min() ...
         longShows.ToList();
-        Console.WriteLine("\n--------- ----- --- ---------\n");
+        Console.WriteLine("\n--------- Max   --- ---------\n");
+        
+        // aggregation methods - not lazy
+        Console.Write("Print out ^ for each item used in Max method ");
+        var maxLength = shows.Max(s =>
+        {
+            // this will get printed out along with each iteration while calculating the max length
+            Console.Write("^");
+            return s.Length;
+        });
+
+        Console.WriteLine($" MaxLenght is: {maxLength} ");
+        Console.WriteLine("\n--------- Odered   ---------\n");
+
 
         // Prepares the ordering - but does not go through - no one needs it yet
         var ordered = shows.OrderBy(s =>
@@ -41,23 +55,19 @@ public class Lazy
             return s.Length;
         });
 
-        // aggregation methods - not lazy
-        var maxLength = shows.Max(s =>
-        {
-            // this will get printed out along with each iteration while calculating the max length
-            Console.Write("calcMax/");
-            return s.Length;
-        });
-
-        Console.WriteLine($"\nmaxLenght: {maxLength} ");
-        Console.WriteLine("\n--------- ----- --- ---------\n");
-
-
         // we never used "ordered" and therefore it was never actually computed/executed
+        // if we uncomment the line below ordered will get used
+        // Console.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"+ordered.First());
+        // notice how ordered needs to go over the whole collection
 
+        Console.WriteLine("\n--------- Only first -------\n");
+        // we'd get only one "only first" in the console because Linq takes the first and finishes
+        Console.WriteLine(shows.Where(s => { Console.Write("Only first: "); return true; }).First());
 
+        Console.WriteLine("\n--------- For each  ---------\n");
         // foreach - not lazy
         var t = new List<int>();
+        Console.WriteLine("+ is printed for each item in foreach:");
         foreach (var item in shows)
         {
             Console.Write("+");
