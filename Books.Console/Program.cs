@@ -16,75 +16,51 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
-            IEnumerable<Book> books = BooksSource.Read();
-
-            BooksByAuthorCatalog = new List<BooksByAuthor>();
-
-            foreach(var book in books)
+            while (true)
             {
-                if (AuthorIsAlreadyCataloged(book.author))
+                Console.WriteLine("Actions available:");
+                Console.WriteLine("1 - Output all books by author (Section 2)");
+                Console.WriteLine("2 - Search books by title (Section 3)");
+                Console.WriteLine("Any other key - Exit");
+
+                var key = Console.ReadKey();
+                switch (key.KeyChar)
                 {
-                    // there are some(1 or more) books by this author already found and catalogued
-                    var authorAndBooks = LocateAuthorAlreadyCataloged(book.author);
-                    authorAndBooks.Books.Add(book);
+                    case '1': Output.BooksByAuthor(BooksSource.Read()); break;
+                    case '2': DoSearch(); break;
+                    default: return;
+                }
+            }
+        }
+
+        public static void DoSearch()
+        {
+            var books = BooksSource.Read();
+            while (true)
+            {
+                Console.WriteLine("\nType author's name or part of it. \n^^^^Type 'exit' to go back^^^^");
+                var authorName = Console.ReadLine();
+                if (authorName == "exit")
+                {
+                    return;
+                }
+
+                var authors = Search.ByTitle(books, authorName);
+
+                if (authors.Count() == 0)
+                {
+                    Console.WriteLine($"No authors found for '{authorName}'");
                 }
                 else
                 {
-                    CatalogueNewAuthor(book);
+                    foreach (var author in authors)
+                    {
+                        Console.WriteLine(author);
+                    }
                 }
+
+                Console.WriteLine("----------------------");
             }
-
-            // now we have an list that has all the authors catalogued
-            OutputBooksByAuthor();
-
-            Console.WriteLine("Finished cataloguing authors. (press a key to exit...)");
-            Console.ReadLine();
-        }
-
-        private static bool AuthorIsAlreadyCataloged(string author)
-        {
-            return BooksByAuthorCatalog.Any(ba => ba.Author == author);
-        }
-
-        private static BooksByAuthor LocateAuthorAlreadyCataloged(string author)
-        {
-            return BooksByAuthorCatalog.First(ba => ba.Author == author);
-        }
-
-        private static void CatalogueNewAuthor(Book b)
-        {
-            // there are NONE books by this author already found and cataloged
-
-            var newBooksList = new List<Book> { b };
-            var authorAndBooks = new BooksByAuthor(b.author, newBooksList);
-
-            BooksByAuthorCatalog.Add(authorAndBooks);
-        }
-
-
-        private static void OutputBooksByAuthor()
-        {
-            foreach(var ba in BooksByAuthorCatalog)
-            {
-                Console.Write("Author: {0,-28} Books: ", ba.Author);
-                foreach (var book in ba.Books)
-                {
-                    Console.Write(book.title + ", ");
-                }
-                Console.Write(Environment.NewLine);
-            }
-        }
-    }
-
-    public class BooksByAuthor
-    {
-        public readonly string Author;
-        public readonly List<Book> Books;
-
-        public BooksByAuthor(string author, List<Book> books)
-        {
-            Author = author;
-            Books = books;
         }
     }
 }
