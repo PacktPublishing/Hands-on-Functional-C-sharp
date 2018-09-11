@@ -18,7 +18,7 @@ namespace Books.ConsoleApp
         {
             while (true)
             {
-                Console.WriteLine("Actions available:");
+                Console.WriteLine("\nActions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
                 Console.WriteLine("2 - Search books by title (Section 3)");
                 Console.WriteLine("Any other key - Exit");
@@ -44,18 +44,20 @@ namespace Books.ConsoleApp
                 {
                     return;
                 }
-
-                var authors = Search.ByTitle(books, authorName);
-
-                if (authors.Count() == 0)
+                if (!string.IsNullOrEmpty(authorName))
                 {
-                    Console.WriteLine($"No authors found for '{authorName}'");
-                }
-                else
-                {
-                    foreach (var author in authors)
+                    var booksByAuthor = Search.ByTitle(books, authorName);
+
+                    if (booksByAuthor.Count() == 0)
                     {
-                        Console.WriteLine(author);
+                        Console.WriteLine($"No books found for '{authorName}'");
+                    }
+                    else
+                    {
+                        foreach (var b in booksByAuthor)
+                        {
+                            Console.WriteLine($"{b.author}: {b.title}");
+                        }
                     }
                 }
 

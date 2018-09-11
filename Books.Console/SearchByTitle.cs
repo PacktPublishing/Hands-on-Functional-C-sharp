@@ -7,9 +7,16 @@ namespace Books.ConsoleApp
 
     public class Search
     {
-        public static IEnumerable<Book> ByTitle(IEnumerable<Book> books, string titlePartial) 
+        public static IEnumerable<Book> ByTitle(IEnumerable<Book> books, string titlePartial)
         {
-            return Enumerable.Empty<Book>();
+            var titlePartialToLower = titlePartial.ToLower();
+            
+            return books
+                .Where(b =>
+                {
+                    var authorToLower = b.author.ToLower();
+                    return authorToLower.Contains(titlePartial);
+                });
         }
     }
 }
