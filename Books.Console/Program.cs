@@ -16,7 +16,13 @@ namespace Books.ConsoleApp
 
         public static void Main()
         {
-            while (true)
+            DemoLINQ.Demo();
+
+            IEnumerable<Book> books = BooksSource.Read();
+
+            BooksByAuthorCatalog = new List<BooksByAuthor>();
+
+            foreach(var book in books)
             {
                 Console.WriteLine("Actions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
