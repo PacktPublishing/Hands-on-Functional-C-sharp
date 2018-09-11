@@ -57,7 +57,7 @@ public class Lazy
 
         // we never used "ordered" and therefore it was never actually computed/executed
         // if we uncomment the line below ordered will get used
-        // Console.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"+ordered.First());
+        //Conle.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"+ordered.First());
         // notice how ordered needs to go over the whole collection
 
         Console.WriteLine("\n--------- Only first -------\n");
@@ -66,12 +66,10 @@ public class Lazy
 
         Console.WriteLine("\n--------- For each  ---------\n");
         // foreach - not lazy
-        var t = new List<int>();
         Console.WriteLine("+ is printed for each item in foreach:");
         foreach (var item in shows)
         {
             Console.Write("+");
-            t.Add(item.Length);
         }
 
     }
