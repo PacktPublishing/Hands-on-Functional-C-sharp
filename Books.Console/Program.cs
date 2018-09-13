@@ -38,7 +38,7 @@ namespace Books.ConsoleApp
             var books = BooksSource.Read();
             while (true)
             {
-                Console.WriteLine("\nType author's name or part of it. \n^^^^Type 'exit' to go back^^^^");
+                Console.WriteLine("\nSearch by book title or a part of it. \n^^^^Type 'exit' to go back^^^^");
                 var authorName = Console.ReadLine();
                 if (authorName == "exit")
                 {
