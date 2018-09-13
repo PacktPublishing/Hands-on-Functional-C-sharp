@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,6 +18,11 @@ namespace Books.ConsoleApp
                     var bookTitleLowercased = b.title.ToLower();
                     return bookTitleLowercased.Contains(titlePartialLowercased);
                 });
+        }
+
+        public static IEnumerable<Book> SuggestRandom(IEnumerable<Book> books, int count = 5)
+        {
+            throw new NotImplementedException();
         }
     }
 }
