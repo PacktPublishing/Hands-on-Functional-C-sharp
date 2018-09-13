@@ -9,13 +9,13 @@ namespace Books.ConsoleApp
     {
         public static IEnumerable<Book> ByTitle(IEnumerable<Book> books, string titlePartial)
         {
-            var titlePartialLower = titlePartial.ToLower();
+            var titlePartialLowercased = titlePartial.ToLower();
             
             return books
                 .Where(b =>
                 {
-                    var titleLower = b.title.ToLower();
-                    return titleLower.Contains(titlePartialLower);
+                    var bookTitleLowercased = b.title.ToLower();
+                    return bookTitleLowercased.Contains(titlePartialLowercased);
                 });
         }
     }
