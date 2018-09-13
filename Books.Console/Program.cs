@@ -39,18 +39,18 @@ namespace Books.ConsoleApp
             while (true)
             {
                 Console.WriteLine("\nSearch by book title or a part of it. \n^^^^Type 'exit' to go back^^^^");
-                var authorName = Console.ReadLine();
-                if (authorName == "exit")
+                var searchTerm = Console.ReadLine();
+                if (searchTerm == "exit")
                 {
                     return;
                 }
-                if (!string.IsNullOrEmpty(authorName))
+                if (!string.IsNullOrEmpty(searchTerm))
                 {
-                    var booksByAuthor = Search.ByTitle(books, authorName);
+                    var booksByAuthor = Search.ByTitle(books, searchTerm);
 
                     if (booksByAuthor.Count() == 0)
                     {
-                        Console.WriteLine($"No books found for '{authorName}'");
+                        Console.WriteLine($"No books found for '{searchTerm}'");
                     }
                     else
                     {
