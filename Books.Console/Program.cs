@@ -45,17 +45,17 @@ namespace Books.ConsoleApp
                     return;
                 }
 
-                var authors = Search.ByTitle(books, authorName);
+                var booksFound = Search.ByTitle(books, authorName);
 
-                if (authors.Count() == 0)
+                if (booksFound.Count() == 0)
                 {
                     Console.WriteLine($"No authors found for '{authorName}'");
                 }
                 else
                 {
-                    foreach (var author in authors)
+                    foreach (var b in booksFound)
                     {
-                        Console.WriteLine(author);
+                        Console.WriteLine(b.title);
                     }
                 }
 
