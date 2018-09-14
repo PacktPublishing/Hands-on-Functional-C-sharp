@@ -28,7 +28,7 @@ class Demo
         System.Console.WriteLine($"1 + 7 = {AddOneTo(7)}");
 
         // PrintOut(InClosureForEach);
-        PrintOut(InClosureFor);
+        PrintOut(CreateClosureWithForLoop);
     }
 
     private static void PrintOut(Func<IEnumerable<Func<int>>> creator)
@@ -41,7 +41,7 @@ class Demo
         }
     }
 
-    public static IEnumerable<Func<int>> InClosureForEach()
+    public static IEnumerable<Func<int>> CreateClosureWithForEachLoop()
     {
         System.Console.WriteLine("Creating closures with for each");
         var range = Enumerable.Range(1, 10);
@@ -55,7 +55,7 @@ class Demo
         return evens;
     }
 
-    public static IEnumerable<Func<int>> InClosureFor()
+    public static IEnumerable<Func<int>> CreateClosureWithForLoop()
     {
         System.Console.WriteLine("Creating closure over for loop");
         var range = Enumerable.Range(1, 10);
