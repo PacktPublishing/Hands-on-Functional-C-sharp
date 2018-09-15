@@ -4,6 +4,12 @@ using System.Linq;
 
 class Demo
 {
+    
+    public static int Add(int x, int y)
+    {
+        return x + y;
+    }
+
     public static Func<int, int> InClosure(int i, Func<int, int, int> function)
     {
         // create a function that closes over i
@@ -15,10 +21,6 @@ class Demo
         return result;
     }
 
-    public static int Add(int x, int y)
-    {
-        return x + y;
-    }
     public static void Main()
     {
         var AddOneTo = InClosure(1, Add);
@@ -28,7 +30,7 @@ class Demo
         System.Console.WriteLine($"1 + 7 = {AddOneTo(7)}");
 
         // PrintOut(InClosureForEach);
-        PrintOut(CreateClosureWithForLoop);
+        // PrintOut(CreateClosureWithForLoop);
     }
 
     private static void PrintOut(Func<IEnumerable<Func<int>>> creator)
