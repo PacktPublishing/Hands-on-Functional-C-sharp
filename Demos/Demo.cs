@@ -4,7 +4,7 @@ using System.Linq;
 
 class Demo
 {
-    
+
     public static int Add(int x, int y)
     {
         return x + y;
@@ -29,8 +29,11 @@ class Demo
         System.Console.WriteLine($"1 + 3 = {AddOneTo(3)}");
         System.Console.WriteLine($"1 + 7 = {AddOneTo(7)}");
 
-        // PrintOut(InClosureForEach);
-        // PrintOut(CreateClosureWithForLoop);
+        PrintOut(CreateClosureWithForLoop);
+        PrintOut(CreateClosureWithForEachLoop);
+
+
+        Console.ReadLine();
     }
 
     private static void PrintOut(Func<IEnumerable<Func<int>>> creator)
@@ -41,6 +44,19 @@ class Demo
             var val = func();
             System.Console.WriteLine("Executed and value is " + val);
         }
+    }
+
+    public static IEnumerable<Func<int>> CreateClosureWithForLoop()
+    {
+        System.Console.WriteLine("Creating closure over for loop");
+
+        var funcs = new List<Func<int>>();
+        for (int i = 0; i < 10; i++)
+        {
+            funcs.Add(() => i);
+        }
+
+        return funcs;
     }
 
     public static IEnumerable<Func<int>> CreateClosureWithForEachLoop()
@@ -56,20 +72,13 @@ class Demo
 
         return evens;
     }
-
-    public static IEnumerable<Func<int>> CreateClosureWithForLoop()
-    {
-        System.Console.WriteLine("Creating closure over for loop");
-        var range = Enumerable.Range(1, 10);
-
-        var evens = new List<Func<int>>();
-        for (int i = 0; i < 10; i++)
-        {
-            evens.Add(() => i);
-        }
-
-        return evens;
-    }
+    //should result in:
+    //0
+    //1
+    //2
+    //3
+    //..
+    //9
 
 }
 
