@@ -51,7 +51,7 @@ class Demo
         System.Console.WriteLine("Creating closure over for loop");
 
         var funcs = new List<Func<int>>();
-        for (int i = 0; i < 10; i++)
+        for (int i = 1; i <= 10; i++)
         {
             funcs.Add(() => i);
         }
@@ -64,21 +64,20 @@ class Demo
         System.Console.WriteLine("Creating closures with for each");
         var range = Enumerable.Range(1, 10);
 
-        var evens = new List<Func<int>>();
+        var funcs = new List<Func<int>>();
         foreach (var i in range)
         {
-            evens.Add(() => i);
+            funcs.Add(() => i);
         }
 
-        return evens;
+        return funcs;
     }
     //should result in:
-    //0
     //1
     //2
     //3
     //..
-    //9
+    //10
 
 }
 
@@ -89,16 +88,15 @@ internal class Explain
         //  
 
         var funcs = new List<Func<int>>();
-        var i = 0;
-        for (; i < 10; i++)
+        var i = 1;
+        for (; i <= 10; i++)
         {
             funcs.Add(() => i);
         }
 
         // here all the funcs have closed over the same i 
         // and when we use it - we'll use the last ever value of i
-        // which comes to 10  (the final i++ increments from 9 to 10 and the for loop exits 
-        // because 10 < 10 is false) 
+        // because 11 <= 10 is false) 
     }
 
     public void Closure(IEnumerable<int> enumerable)
