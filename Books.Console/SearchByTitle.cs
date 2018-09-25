@@ -23,9 +23,9 @@ namespace Books.ConsoleApp
         public static IEnumerable<Book> SuggestRandom(IEnumerable<Book> books, int count = 5)
         {
             return books
-                // why do we return a GUID? for the orderby key selector
+                // why do we return a GUID for the orderby key selector?
                 .OrderBy(_ => Guid.NewGuid())
-                .Take(5);
+                .Take(count);
         }
     }
 }
