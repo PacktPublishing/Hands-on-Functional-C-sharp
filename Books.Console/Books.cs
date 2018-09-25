@@ -25,6 +25,14 @@ namespace Books.ConsoleApp
         public int year { get; set; }
     }
 
+    public static class BookMap
+    {
+        public static string AuthorAndTitle(Book b)
+        {
+            return $"{b.author}: {b.title}";
+        }
+    }
+
     public interface IBooksSource
     {
         Book[] Read();

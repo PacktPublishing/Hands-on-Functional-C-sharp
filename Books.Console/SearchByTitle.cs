@@ -11,7 +11,7 @@ namespace Books.ConsoleApp
         public static IEnumerable<Book> ByTitle(IEnumerable<Book> books, string titlePartial)
         {
             var titlePartialLowercased = titlePartial.ToLower();
-            
+
             return books
                 .Where(b =>
                 {
@@ -22,7 +22,12 @@ namespace Books.ConsoleApp
 
         public static IEnumerable<Book> SuggestRandom(IEnumerable<Book> books, int count = 5)
         {
-            throw new NotImplementedException();
+            return books.OrderBy(Random).Take(5);
+        }
+
+        public static Guid Random(Book _)
+        {
+            return Guid.NewGuid();
         }
     }
 }

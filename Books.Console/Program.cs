@@ -46,17 +46,18 @@ namespace Books.ConsoleApp
                 }
                 if (!string.IsNullOrEmpty(searchTerm))
                 {
-                    var booksByAuthor = Search.ByTitle(books, searchTerm);
+                    var booksAndAuthorResults = Search.ByTitle(books, searchTerm)
+                        .Select(b => BookMap.AuthorAndTitle(b));
 
-                    if (booksByAuthor.Count() == 0)
+                    if (booksAndAuthorResults.Count() == 0)
                     {
                         Console.WriteLine($"No books found for '{searchTerm}'");
                     }
                     else
                     {
-                        foreach (var b in booksByAuthor)
+                        foreach (var res in booksAndAuthorResults)
                         {
-                            Console.WriteLine($"{b.author}: {b.title}");
+                            Console.WriteLine(res);
                         }
                     }
                 }
