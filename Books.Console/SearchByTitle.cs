@@ -22,7 +22,9 @@ namespace Books.ConsoleApp
 
         public static IEnumerable<Book> SuggestRandom(IEnumerable<Book> books, int count = 5)
         {
-            return books.OrderBy(Random).Take(5);
+            return books
+                .OrderBy(Random)
+                .Take(count);
         }
 
         public static Guid Random(Book _)
