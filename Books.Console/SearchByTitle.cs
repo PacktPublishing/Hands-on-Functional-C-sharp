@@ -27,7 +27,7 @@ namespace Books.ConsoleApp
                 .Take(count);
         }
 
-        public static Guid Random(Book _)
+        private static Guid Random(Book _)
         {
             return Guid.NewGuid();
         }
