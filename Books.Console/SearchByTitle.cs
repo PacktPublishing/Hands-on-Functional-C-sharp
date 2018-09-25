@@ -23,12 +23,14 @@ namespace Books.ConsoleApp
         public static IEnumerable<Book> SuggestRandom(IEnumerable<Book> books, int count = 5)
         {
             return books
+                // it is now explicit what the intent is - order the books randomly
                 .OrderBy(Random)
                 .Take(count);
         }
 
         private static Guid Random(Book _)
         {
+            // and the implementation is right here should it need to be reviewed/updated etc.
             return Guid.NewGuid();
         }
     }
