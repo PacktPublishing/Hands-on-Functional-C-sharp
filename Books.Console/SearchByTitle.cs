@@ -22,12 +22,10 @@ namespace Books.ConsoleApp
 
         public static IEnumerable<Book> SuggestRandom(IEnumerable<Book> books, int count = 5)
         {
-            return books.OrderBy(Random).Take(5);
-        }
-
-        public static Guid Random(Book _)
-        {
-            return Guid.NewGuid();
+            return books
+                // why do we return a GUID? for the orderby key selector
+                .OrderBy(_ => Guid.NewGuid())
+                .Take(5);
         }
     }
 }
