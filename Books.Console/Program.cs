@@ -46,8 +46,7 @@ namespace Books.ConsoleApp
                 }
                 if (!string.IsNullOrEmpty(searchTerm))
                 {
-                    var booksAndAuthorResults = Search.ByTitle(books, searchTerm)
-                        .Select(b => BookMap.AuthorAndTitle(b));
+                    var booksAndAuthorResults = Search.ByTitle(books, searchTerm);
 
                     if (booksAndAuthorResults.Count() == 0)
                     {
@@ -55,9 +54,9 @@ namespace Books.ConsoleApp
                     }
                     else
                     {
-                        foreach (var res in booksAndAuthorResults)
+                        foreach (var b in booksAndAuthorResults)
                         {
-                            Console.WriteLine(res);
+                            Console.WriteLine($"{b.author}: {b.title}");
                         }
                     }
                 }
