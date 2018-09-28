@@ -1,4 +1,5 @@
 ﻿using System;
+using Demos;
 
 namespace Demos
 {
@@ -6,6 +7,10 @@ namespace Demos
     {
         static void Main(string[] args)
         {
+            var s = string.Empty;
+
+            
+            
             Console.WriteLine("Hello World!");
         }
     }
