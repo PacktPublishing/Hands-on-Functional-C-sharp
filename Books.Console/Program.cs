@@ -70,7 +70,11 @@ namespace Books.ConsoleApp
             var books = BooksSource.Read();
             while (true)
             {
-                Console.WriteLine("\nSearch by book category or a part of it. \n^^^^Type 'exit' to go back^^^^");
+                Console.WriteLine(
+                    "\nSearch by book category or a part of it. \n" +
+                    "(for example: fic or Fiction or aut or bio or autobiography) \n" +
+                    "comma separated lists acceptable : juv, sci\n" +
+                    "^^^^Type 'exit' to go back^^^^");
                 var searchTerm = Console.ReadLine();
                 if (searchTerm == "exit")
                 {
@@ -80,7 +84,7 @@ namespace Books.ConsoleApp
                 {
                     var booksAndAuthorResults = SearchByCategory
                         .Search(books, searchTerm.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                        .Select(b => BookMap.AuthorAndTitle(b));
+                        .Select(b => BookMap.CategoryAuthorAndTitle(b));
 
                     if (booksAndAuthorResults.Count() == 0)
                     {

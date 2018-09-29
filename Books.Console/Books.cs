@@ -31,6 +31,12 @@ namespace Books.ConsoleApp
         {
             return $"{b.author}: {b.title}";
         }
+
+        public static string CategoryAuthorAndTitle(Book b)
+        {
+            var categories = string.Join(',', b.categories);
+            return $"{AuthorAndTitle(b)} [{categories}]";
+        }
     }
 
     public interface IBooksSource
