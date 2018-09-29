@@ -5,7 +5,7 @@ namespace Books.ConsoleApp
 {
     public static class SearchByCategory
     {
-        public static IEnumerable<Book> Search(this IEnumerable<Book> book, params string[] categories)
+        public static IEnumerable<Book> SearchByCategories(this IEnumerable<Book> book, params string[] categories)
         {
             var categoriesToLower = categories.Lower().ToArray();
 
@@ -13,9 +13,7 @@ namespace Books.ConsoleApp
                 .Where(b =>
                 {
                     var bookCategoriesToLow = b.categories.Lower();
-                    var match = bookCategoriesToLow.Any(c => categoriesToLower.Any(cat => c.Contains(cat)));
-
-                    return match;
+                    return bookCategoriesToLow.ContainsOneOf(categoriesToLower);
                 });
         }
     }
@@ -25,6 +23,11 @@ namespace Books.ConsoleApp
         public static IEnumerable<string> Lower(this IEnumerable<string> strings)
         {
             return strings.Select(s => s.ToLowerInvariant());
+        }
+
+        public static bool ContainsOneOf(this IEnumerable<string> strings, IEnumerable<string> these)
+        {
+            return strings.Any(s => these.Any(t => s.Contains(t)));
         }
     }
 }

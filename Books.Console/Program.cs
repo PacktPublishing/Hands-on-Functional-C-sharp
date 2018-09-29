@@ -38,42 +38,28 @@ namespace Books.ConsoleApp
         public static void DoSearchByTitle()
         {
             var books = BooksSource.Read();
-            while (true)
-            {
-                Console.WriteLine("\nSearch by book title or a part of it. \n^^^^Type 'exit' to go back^^^^");
-                var searchTerm = Console.ReadLine();
-                if (searchTerm == "exit")
-                {
-                    return;
-                }
-                if (!string.IsNullOrEmpty(searchTerm))
-                {
-                    var booksAndAuthorResults = Search.ByTitle(books, searchTerm)
-                        .Select(b => BookMap.AuthorAndTitle(b));
-
-                    if (booksAndAuthorResults.Count() == 0)
-                    {
-                        Console.WriteLine($"No books found for '{searchTerm}'");
-                    }
-                    else
-                    {
-                        foreach (var res in booksAndAuthorResults)
-                        {
-                            Console.WriteLine(res);
-                        }
-                    }
-                }
-
-                Console.WriteLine("----------------------");
-            }
+            DoSearch(
+                searchPrompt: "Search by book title or a part of it.", 
+                searchFunc: searchTerm => Search.ByTitle(books, searchTerm)
+                    .Select(b => BookMap.AuthorAndTitle(b)));
         }
 
-        private static void DoSearchByCategory()
+        private static void DoSearchByCategory ()
         {
             var books = BooksSource.Read();
+            DoSearch("Search by book category or a part of it. \n(for example: fic or Fiction or aut or bio or autobiography) \n comma separated lists acceptable : fic, sci",
+                searchTerm => books
+                        .SearchByCategories(searchTerm.FromCommaSeparatedList())
+                        .Select(b => BookMap.CategoryAuthorAndTitle(b))
+                        .Highlight(searchTerm.FromCommaSeparatedList())
+                        );
+        }
+            
+        private static void DoSearch(string searchPrompt, Func<string, IEnumerable<string>> searchFunc)
+        {
             while (true)
             {
-                Console.WriteLine("\nSearch by book category or a part of it. \n^^^^Type 'exit' to go back^^^^");
+                Console.WriteLine($"\n{searchPrompt} \n^^^^Type 'exit' to go back^^^^");
                 var searchTerm = Console.ReadLine();
                 if (searchTerm == "exit")
                 {
@@ -81,9 +67,7 @@ namespace Books.ConsoleApp
                 }
                 if (!string.IsNullOrEmpty(searchTerm))
                 {
-                    var booksAndAuthorResults = books
-                        .Search(searchTerm.Split(new char[] { ',', ' ', ':', ';' }, StringSplitOptions.RemoveEmptyEntries))
-                        .Select(b => BookMap.AuthorAndTitle(b));
+                    var booksAndAuthorResults = searchFunc(searchTerm);
 
                     if (booksAndAuthorResults.Count() == 0)
                     {
@@ -101,6 +85,21 @@ namespace Books.ConsoleApp
                 Console.WriteLine("----------------------");
             }
         }
+    }
 
+    public static class PrintOutExtensions
+    {
+        public static IEnumerable<string> Highlight(this IEnumerable<string> strings, params string[] toHighlight)
+        {
+            return strings.SelectMany(s => toHighlight.Select(h => s.Replace(h, h.ToUpperInvariant(), StringComparison.OrdinalIgnoreCase)));
+        }
+    }
+
+    public static class SearchTermExtensions
+    {
+        public static string[] FromCommaSeparatedList(this string s)
+        {
+            return s.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }
