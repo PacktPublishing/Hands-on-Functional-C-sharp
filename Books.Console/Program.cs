@@ -44,7 +44,9 @@ namespace Books.ConsoleApp
         private static void DoSearchByCategory ()
         {
             var books = BooksSource.Read();
-            DoSearch("Search by book category or a part of it. \n(for example: fic or Fiction or aut or bio or autobiography) \ncomma separated lists acceptable : juv, sci",
+            DoSearch("Search by book category or a part of it. \n" +
+                "(for example: fic or Fiction or aut or bio or autobiography) \n" +
+                "comma separated lists acceptable : juv, sci",
                 searchTerm => books
                         .SearchByCategories(searchTerm.FromCommaSeparatedList())
                         .Select(b => BookMap.CategoryAuthorAndTitle(b))
