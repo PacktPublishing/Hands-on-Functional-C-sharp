@@ -79,7 +79,7 @@ namespace Books.ConsoleApp
                 if (!string.IsNullOrEmpty(searchTerm))
                 {
                     var booksAndAuthorResults = books
-                        .Search(searchTerm.Split(new char[] { ',', ' ', ':', ';' }, StringSplitOptions.RemoveEmptyEntries))
+                        .Search(searchTerm.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                         .Select(b => BookMap.AuthorAndTitle(b));
 
                     if (booksAndAuthorResults.Count() == 0)
