@@ -6,9 +6,9 @@ namespace Demos.AnotherNamespace
 {
     public static class DemoExtensionMethod
     {
-        public static void ThisIsAnExtensionMethodToString(this string s)
+        public static string ThisIsAnExtensionMethodToString(this string s)
         {
-            // does nothing but demo
+            return s + " comes from the extension method";
         }
     }
 }

@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Books.ConsoleApp
 {
-    public class SearchByCategory
+    public static class SearchByCategory
     {
-        public static IEnumerable<Book> Search(IEnumerable<Book> book, params string[] categories)
+        public static IEnumerable<Book> Search(this IEnumerable<Book> book, params string[] categories)
         {
-            var categoriesToLower = MyClass.Lower(categories).ToArray();
+            var categoriesToLower = categories.Lower().ToArray();
 
             return book
                 .Where(b =>
                 {
-                    var bookCategoriesToLow = MyClass.Lower(b.categories);
-                    var numberOfCategoriesIntersecting = bookCategoriesToLow.Intersect(categoriesToLower).Count();
-                    return numberOfCategoriesIntersecting > 0;
+                    var bookCategoriesToLow = b.categories.Lower();
+                    var match = bookCategoriesToLow.Any(c => categoriesToLower.Any(cat => c.Contains(cat)));
+
+                    return match;
                 });
         }
     }

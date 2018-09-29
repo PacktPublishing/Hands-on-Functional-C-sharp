@@ -1,5 +1,6 @@
 ﻿using System;
 using Demos;
+using Demos.AnotherNamespace;
 
 namespace Demos
 {
@@ -7,11 +8,10 @@ namespace Demos
     {
         static void Main(string[] args)
         {
-            var s = string.Empty;
-
+            var s = string.Empty;            
             
-            
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World! " + s.ThisIsAnExtensionMethodToString());
+            Console.ReadLine();
         }
     }
 }
