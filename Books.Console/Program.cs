@@ -10,10 +10,7 @@ namespace Books.ConsoleApp
     class Program
     {
         private static IBooksSource BooksSource = new BooksJsonSource();
-
-        // we will use this as global state
-        private static List<BooksByAuthor> BooksByAuthorCatalog;
-
+        
         public static void Main()
         {
             while (true)
