@@ -50,7 +50,7 @@ namespace Books.ConsoleApp
                 searchTerm => books
                         .SearchByCategories(searchTerm.FromCommaSeparatedList())
                         .Select(b => BookMap.CategoryAuthorAndTitle(b))
-                        //.Highlight(searchTerm.FromCommaSeparatedList())
+                        .Highlight(searchTerm.FromCommaSeparatedList())
                         );
         }
             
