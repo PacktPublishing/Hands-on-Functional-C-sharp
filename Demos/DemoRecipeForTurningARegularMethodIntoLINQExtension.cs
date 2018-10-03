@@ -11,12 +11,14 @@ namespace Demos
         {
             return incoming.Select(s => s.Length);
         }   
-
     }
 
 
-    public static class MethodIsInNonStaticClass
+    public static class MethodIsInAStaticClass
     {
-
+        public static string GetLongest(IEnumerable<string> strings) 
+        {
+            return strings.OrderByDescending(s => s.Length).First();
+        }
     }
 }
