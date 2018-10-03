@@ -7,7 +7,7 @@ namespace Demos
 {
     public class MethodIsInNonStaticClass
     {      
-        public IEnumerable<int> Map(IEnumerable<string> incoming)
+        public IEnumerable<int> Lenghts(IEnumerable<string> incoming)
         {
             return incoming.Select(s => s.Length);
         }   
