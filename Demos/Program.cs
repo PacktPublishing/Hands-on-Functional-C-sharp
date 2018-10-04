@@ -14,8 +14,14 @@ namespace Demos
             var instance = new MethodIsInNonStaticClass();
             var lenghts = instance.Lenghts(titles);
 
+            // now
+            lenghts = titles.Lenghts();
+
             // need to name the full name of class and then the name of method
             var longest = MethodIsInAStaticClass.GetLongest(titles);
+
+            // now
+            longest = titles.GetLongest();
 
             // somewhat non-trivial use of LINQ
             var stringsAndLengths = titles
