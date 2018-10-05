@@ -14,24 +14,18 @@ namespace Demos
             var instance = new MethodIsInNonStaticClass();
             var lenghts = instance.Lenghts(titles);
 
-            // now
-            lenghts = titles.Lenghts();
-
             // need to name the full name of class and then the name of method
-            var longest = MethodIsInAStaticClass.GetLongest(titles);
-
-            // now
-            longest = titles.GetLongest();
+            var longest = MethodIsInAStaticClass.LognestBy(titles, t => t.Length);
 
             // somewhat non-trivial use of LINQ
             var stringsAndLengths = titles
                 // zip-up together the titles and their lengths
-                .Zip(lenghts, (t, len) => $"{t}[{len}]")
+                .Zip(titles.Lenghts(), (t, len) => $"{t}[{len}]")
                 // aggregate (or reduce) to a single string
                 .Aggregate((prev, next) => string.Concat(prev, Environment.NewLine, next));
 
             Console.WriteLine(stringsAndLengths);
-            Console.WriteLine("And the longest is " + longest);
+            Console.WriteLine("And the longest is " + titles.LognestBy(t => t.Lenght));
             Console.ReadLine();
         }
     }

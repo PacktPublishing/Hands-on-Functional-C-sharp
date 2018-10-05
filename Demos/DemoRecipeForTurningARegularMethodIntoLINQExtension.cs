@@ -13,7 +13,7 @@ namespace Demos
         }
     }
 
-    public static class StringExtensions
+    public static class StringCollectionExtensions
     {
         public static IEnumerable<int> Lenghts(this IEnumerable<string> incoming)
         {
@@ -24,9 +24,9 @@ namespace Demos
 
     public static class MethodIsInAStaticClass
     {
-        public static string GetLongest(this IEnumerable<string> strings)
+        public static T LognestBy<T>(IEnumerable<T> collection, Func<T, object> lenght)
         {
-            return strings.OrderByDescending(s => s.Length).First();
+            return collection.OrderByDescending(lenght).First();
         }
     }
 }
