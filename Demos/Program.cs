@@ -8,7 +8,7 @@ namespace Demos
     {
         static void Main(string[] args)
         {
-            var titles = new string[] { "The three body problem", "The dark forest", "Death's end" };
+            var titles = new string[] { "The Three-Body Problem", "The Dark forest", "Death's End" };
 
             // need a new instance first and call its method then
             var instance = new MethodIsInNonStaticClass();
