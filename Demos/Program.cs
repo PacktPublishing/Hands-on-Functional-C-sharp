@@ -15,7 +15,7 @@ namespace Demos
             var lenghts = instance.Lenghts(titles);
 
             // need to name the full name of class and then the name of method
-            var longest = MethodIsInAStaticClass.LognestBy(titles, t => t.Length);
+            var longest = MethodIsInAStaticClass.LongestBy(titles, t => t.Length);
 
             // somewhat non-trivial use of LINQ
             var stringsAndLengths = titles
@@ -25,7 +25,7 @@ namespace Demos
                 .Aggregate((prev, next) => string.Concat(prev, Environment.NewLine, next));
 
             Console.WriteLine(stringsAndLengths);
-            Console.WriteLine("And the longest is " + titles.LognestBy(t => t.Lenght));
+            Console.WriteLine("And the longest is " + titles.LongestBy(t => t.Length));
             Console.ReadLine();
         }
     }

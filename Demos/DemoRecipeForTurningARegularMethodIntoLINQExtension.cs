@@ -24,7 +24,7 @@ namespace Demos
 
     public static class MethodIsInAStaticClass
     {
-        public static T LognestBy<T>(IEnumerable<T> collection, Func<T, object> lenght)
+        public static T LongestBy<T>(this IEnumerable<T> collection, Func<T, object> lenght)
         {
             return collection.OrderByDescending(lenght).First();
         }
