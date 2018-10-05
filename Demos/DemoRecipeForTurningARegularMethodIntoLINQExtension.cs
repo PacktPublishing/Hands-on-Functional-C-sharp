@@ -12,10 +12,10 @@ namespace Demos
             return incoming.Select(s => s.Length);
         }
     }
-   
+    
     public static class MethodIsInAStaticClass
     {
-        public static T LognestBy<T>(IEnumerable<T> collection, Func<T, object> lenght)
+        public static T LongestBy<T>(IEnumerable<T> collection, Func<T, object> lenght)
         {
             return collection.OrderByDescending(lenght).First();
         }
