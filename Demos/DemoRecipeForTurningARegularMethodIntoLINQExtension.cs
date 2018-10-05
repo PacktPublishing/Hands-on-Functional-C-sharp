@@ -6,19 +6,27 @@ using System.Text;
 namespace Demos
 {
     public class MethodIsInNonStaticClass
-    {      
+    {
         public IEnumerable<int> Lenghts(IEnumerable<string> incoming)
         {
             return incoming.Select(s => s.Length);
-        }   
+        }
+    }
+
+    public static class StringCollectionExtensions
+    {
+        public static IEnumerable<int> Lenghts(this IEnumerable<string> incoming)
+        {
+            return incoming.Select(s => s.Length);
+        }
     }
 
 
     public static class MethodIsInAStaticClass
     {
-        public static string GetLongest(IEnumerable<string> strings) 
+        public static T LognestBy<T>(IEnumerable<T> collection, Func<T, object> lenght)
         {
-            return strings.OrderByDescending(s => s.Length).First();
+            return collection.OrderByDescending(lenght).First();
         }
     }
 }
