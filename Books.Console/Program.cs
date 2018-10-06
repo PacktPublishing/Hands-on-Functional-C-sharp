@@ -10,38 +10,57 @@ namespace Books.ConsoleApp
     class Program
     {
         private static IBooksSource BooksSource = new BooksJsonSource();
-        
+
         public static void Main()
         {
+            Book selected = Book.Empty;
             while (true)
             {
                 Console.WriteLine("\nActions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
                 Console.WriteLine("2 - Search books by title (Section 3)");
                 Console.WriteLine("3 - Search books by category (Section 4)");
+                Console.WriteLine("4 - Select a book(Section 5)");
+                if(selected != Book.Empty)
+                {
+                    Console.WriteLine($"5 - Delete {selected.title}");
+                    //Console.WriteLine($"6 - Add category to {selected.title}");
+                }
                 Console.WriteLine("Any other key - Exit");
 
-                var key = Console.ReadKey();
-                switch (key.KeyChar)
+                var key = Console.ReadLine();
+                switch (key)
                 {
-                    case '1': Output.BooksByAuthor(BooksSource.Read()); break;
-                    case '2': DoSearchByTitle(); break;
-                    case '3': DoSearchByCategory(); break;
+                    case "1": Output.BooksByAuthor(BooksSource.Read()); break;
+                    case "2": DoSearchByTitle(); break;
+                    case "3": DoSearchByCategory(); break;
+                    case "4": selected = DoSelectABook(); break;
+                    case "5":
+                        {
+                            DoDelete(selected);
+                            selected = Book.Empty;
+                            break;
+                        }
                     default: return;
                 }
             }
+        }
+
+        private static void DoDelete(Book selected)
+        {
+            Console.WriteLine("Deleted");
         }
 
         public static void DoSearchByTitle()
         {
             var books = BooksSource.Read();
             DoSearch(
-                searchPrompt: "Search by book title or a part of it.", 
+                searchPrompt: "Search by book title or a part of it.",
                 searchFunc: searchTerm => Search.ByTitle(books, searchTerm)
                     .Select(b => BookMap.AuthorAndTitle(b)));
         }
 
-        private static void DoSearchByCategory ()
+        private static void DoSearchByCategory()
         {
             var books = BooksSource.Read();
             DoSearch("Search by book category or a part of it. \n(for example: fic or Fiction or aut or bio or autobiography) \ncomma separated lists acceptable : juv, sci",
@@ -51,7 +70,7 @@ namespace Books.ConsoleApp
                         //.Highlight(searchTerm.FromCommaSeparatedList())
                         );
         }
-            
+
         private static void DoSearch(string searchPrompt, Func<string, IEnumerable<string>> searchFunc)
         {
             while (true)
@@ -81,6 +100,29 @@ namespace Books.ConsoleApp
 
                 Console.WriteLine("----------------------");
             }
+        }
+
+        private static Book DoSelectABook()
+        {
+            Action<string> echo = Console.WriteLine;
+
+            Func<string, string> promptFunc = s =>
+                {
+                    echo(s);
+                    return Console.ReadLine();
+                };
+            var selectByChoice = Select.Prompt(promptFunc);
+
+            var book = selectByChoice(echo, promptFunc, BooksSource.Read());
+            if (book == Book.Empty)
+            {
+                Console.WriteLine("No book selected.");
+            }
+            else
+            {
+                Console.WriteLine("Selected book is " + BookMap.CategoryAuthorAndTitle(book));
+            }
+            return book;
         }
     }
 

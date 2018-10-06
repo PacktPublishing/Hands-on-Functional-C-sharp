@@ -14,6 +14,8 @@ namespace Books.ConsoleApp
 
     public class Book
     {
+        internal static readonly Book Empty = new Book();
+
         public string[] categories;
         public string author { get; set; }
         public string country { get; set; }
