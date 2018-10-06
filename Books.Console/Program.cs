@@ -21,10 +21,9 @@ namespace Books.ConsoleApp
                 Console.WriteLine("2 - Search books by title (Section 3)");
                 Console.WriteLine("3 - Search books by category (Section 4)");
                 Console.WriteLine("4 - Select a book(Section 5)");
-                if(selected != Book.Empty)
+                if (selected != Book.Empty)
                 {
                     Console.WriteLine($"5 - Delete {selected.title}");
-                    //Console.WriteLine($"6 - Add category to {selected.title}");
                 }
                 Console.WriteLine("Any other key - Exit");
 
@@ -104,16 +103,7 @@ namespace Books.ConsoleApp
 
         private static Book DoSelectABook()
         {
-            Action<string> echo = Console.WriteLine;
-
-            Func<string, string> promptFunc = s =>
-                {
-                    echo(s);
-                    return Console.ReadLine();
-                };
-            var selectByChoice = Select.Prompt(promptFunc);
-
-            var book = selectByChoice(echo, promptFunc, BooksSource.Read());
+            var book = Select.ByTitle(Console.WriteLine, Console.ReadLine, BooksSource.Read());
             if (book == Book.Empty)
             {
                 Console.WriteLine("No book selected.");
