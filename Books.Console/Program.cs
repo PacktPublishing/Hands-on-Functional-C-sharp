@@ -103,7 +103,8 @@ namespace Books.ConsoleApp
 
         private static Book DoSelectABook()
         {
-            var book = Select.ByTitle(Console.WriteLine, Console.ReadLine, BooksSource.Read());
+            var books = BooksSource.Read();
+            var book = Select.ByTitle(Console.WriteLine, Console.ReadLine, s => Search.ByTitle(books, s));
             if (book == Book.Empty)
             {
                 Console.WriteLine("No book selected.");

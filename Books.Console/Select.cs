@@ -7,18 +7,17 @@ namespace Books.ConsoleApp
 {
     public class Select
     {
-        public static Book ByTitle(Action<string> say, Func<string> hear, IEnumerable<Book> books)
+        public static Book ByTitle(Action<string> say, Func<string> hear, Func<string, IEnumerable<Book>> searchByTitle)
         {
             say("Type title or part of it");
             var searchCriteria = hear();
-            var match = searchCriteria.ToLower();
-            var booksMatched = books.Where(b => b.title.ToLower().Contains(match));
+            var booksMatched = searchByTitle(searchCriteria);
             var matches = booksMatched.Count();
 
             if (matches == 0)
             {
                 say("No books found by that criteria.");
-                return ByTitle(say, hear, books);
+                return ByTitle(say, hear, searchByTitle);
             }
             else if (matches == 1)
             {
