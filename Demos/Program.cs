@@ -14,11 +14,11 @@ namespace Demos
 
             Console.WriteLine($"x = {x} y = {y} z = {z}");
             Console.WriteLine($"x == y == z is {x == y && y == z && x == z}");
-
+            Console.ReadLine();
 
             var a = AddAndLog(1, 2);
             Console.WriteLine($"x = {x} a = {a}");
-            Console.WriteLine($"a == y is {a == x}");
+            Console.WriteLine($"a == x is {a == x}");
 
             Console.ReadLine();
         }
