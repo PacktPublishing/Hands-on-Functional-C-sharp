@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Demos;
+using static Demos.DemoPureFunction;
 
 namespace Demos
 {
@@ -8,6 +8,10 @@ namespace Demos
     {
         static void Main(string[] args)
         {
+            var x = Add(1, 2);
+            var y = Add(1, 2);
+            var z = Add(1, 2);
+
             Console.ReadLine();
         }
     }
