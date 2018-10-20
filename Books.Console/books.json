@@ -3,7 +3,6 @@
     "categories": [
       "Fiction",
       "Religion",
-      "Literary Criticism",
       "Juvenile Nonfiction"
     ],
     "author": "Chinua Achebe",
@@ -19,7 +18,6 @@
     "categories": [
       "Juvenile Fiction",
       "Fiction",
-      "Reference",
       "Literary Criticism"
     ],
     "author": "Hans Christian Andersen",
@@ -34,10 +32,8 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Good and evil",
-      "Poetry",
-      "Study Aids"
+      "Poetry"
     ],
     "author": "Dante Alighieri",
     "country": "Italy",
@@ -52,7 +48,6 @@
     "categories": [
       "Poetry",
       "Fiction",
-      "Literary Criticism",
       "Religion"
     ],
     "author": "Unknown",
@@ -82,7 +77,6 @@
     "categories": [
       "Fiction",
       "Drama",
-      "Literary Criticism",
       "History"
     ],
     "author": "Unknown",
@@ -97,7 +91,6 @@
   {
     "categories": [
       "Njáls Saga",
-      "Literary Criticism",
       "Fiction",
       "Romance, English",
       "Literary Collections"
@@ -132,7 +125,6 @@
       "France",
       "Education",
       "Juvenile Fiction",
-      "Literary Criticism",
       "Drama"
     ],
     "author": "Honoré de Balzac",
@@ -147,7 +139,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "History"
     ],
     "author": "Samuel Beckett",
@@ -195,10 +186,7 @@
   },
   {
     "categories": [
-      "Literary Criticism",
-      "Study Aids",
       "Education",
-      "Reference",
       "Foundlings",
       "Juvenile Fiction",
       "Fiction"
@@ -215,8 +203,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
-      "Study Aids",
       "Religion",
       "Electronic books"
     ],
@@ -232,7 +218,6 @@
   {
     "categories": [
       "Poetry",
-      "Literary Criticism",
       "Scottish poetry",
       "Literary Collections",
       "American poetry",
@@ -251,7 +236,6 @@
     "categories": [
       "French fiction",
       "Fiction",
-      "Literary Criticism",
       "Education"
     ],
     "author": "Louis-Ferdinand Céline",
@@ -265,7 +249,6 @@
   },
   {
     "categories": [
-      "Literary Criticism",
       "Fiction",
       "Literary Collections"
     ],
@@ -280,11 +263,9 @@
   },
   {
     "categories": [
-      "Literary Criticism",
       "Poetry",
       "Fiction",
-      "Juvenile Nonfiction",
-      "Christian pilgrims and pilgrimages in literature"
+      "Juvenile Nonfiction"
     ],
     "author": "Geoffrey Chaucer",
     "country": "England",
@@ -298,7 +279,6 @@
   {
     "categories": [
       "Philosophy",
-      "Literary Criticism",
       "History",
       "Language Arts & Disciplines",
       "Political Science",
@@ -316,10 +296,8 @@
   {
     "categories": [
       "Latin America",
-      "Literary Criticism",
       "Fiction",
-      "Juvenile Nonfiction",
-      "Revolutions in literature"
+      "Juvenile Nonfiction"
     ],
     "author": "Joseph Conrad",
     "country": "United Kingdom",
@@ -332,11 +310,9 @@
   },
   {
     "categories": [
-      "Foreign Language Study",
       "England",
       "Health & Fitness",
       "Social Science",
-      "Reference",
       "Fiction",
       "Juvenile Fiction",
       "Literary Collections"
@@ -372,7 +348,6 @@
       "History",
       "Social Science",
       "Architecture",
-      "Literary Criticism",
       "Performing Arts"
     ],
     "author": "Alfred Döblin",
@@ -389,7 +364,6 @@
       "Murder",
       "Fiction",
       "History",
-      "Literary Criticism",
       "Juvenile Nonfiction",
       "Social Science"
     ],
@@ -442,10 +416,8 @@
   {
     "categories": [
       "Literary Collections",
-      "Foreign Language Study",
       "Fiction",
       "History",
-      "Literary Criticism",
       "Political Science"
     ],
     "author": "Fyodor Dostoevsky",
@@ -507,8 +479,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
-      "Study Aids",
       "Religion",
       "Juvenile Nonfiction"
     ],
@@ -524,12 +494,10 @@
   {
     "categories": [
       "Education",
-      "Literary Criticism",
       "Juvenile Nonfiction",
       "History",
       "Fiction",
-      "Family",
-      "Study Aids"
+      "Family"
     ],
     "author": "William Faulkner",
     "country": "United States",
@@ -544,7 +512,6 @@
     "categories": [
       "Fiction",
       "Adultery",
-      "Literary Criticism",
       "Psychoanalysis and literature"
     ],
     "author": "Gustave Flaubert",
@@ -559,7 +526,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Education",
       "Language Arts & Disciplines",
       "Social Science"
@@ -590,10 +556,8 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Language Arts & Disciplines",
-      "Education",
-      "Study Aids"
+      "Education"
     ],
     "author": "Gabriel García Márquez",
     "country": "Colombia",
@@ -607,7 +571,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Drama"
     ],
     "author": "Gabriel García Márquez",
@@ -653,7 +616,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Biography & Autobiography"
     ],
     "author": "Günter Grass",
@@ -669,7 +631,6 @@
     "categories": [
       "Outlaws",
       "Fiction",
-      "Literary Criticism",
       "Political Science",
       "Devil"
     ],
@@ -779,7 +740,6 @@
   {
     "categories": [
       "Philosophy",
-      "Literary Criticism",
       "History",
       "Language Arts & Disciplines",
       "Political Science",
@@ -881,7 +841,6 @@
     "categories": [
       "Families",
       "Fiction",
-      "Literary Criticism",
       "History",
       "English literature"
     ],
@@ -914,7 +873,6 @@
   {
     "categories": [
       "Poetry",
-      "Literary Criticism",
       "American poetry",
       "Scotland"
     ],
@@ -930,10 +888,8 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Colchester (England)",
       "Biography & Autobiography",
-      "Foreign Language Study",
       "Health & Fitness"
     ],
     "author": "Doris Lessing",
@@ -984,7 +940,6 @@
     "categories": [
       "Fiction",
       "Political Science",
-      "Literary Criticism",
       "Biography & Autobiography",
       "Religion"
     ],
@@ -999,9 +954,7 @@
   },
   {
     "categories": [
-      "Families",
-      "Literary Criticism",
-      "Foreign Language Study"
+      "Families"
     ],
     "author": "Thomas Mann",
     "country": "Germany",
@@ -1016,7 +969,6 @@
     "categories": [
       "Fiction",
       "History",
-      "Literary Criticism",
       "Travel",
       "Musicals",
       "Juvenile Fiction",
@@ -1037,7 +989,6 @@
       "Fiction",
       "Adventure stories",
       "Juvenile Nonfiction",
-      "Study Aids",
       "Readers"
     ],
     "author": "Herman Melville",
@@ -1070,7 +1021,6 @@
   {
     "categories": [
       "History",
-      "Literary Criticism",
       "Music",
       "Massachusetts"
     ],
@@ -1088,7 +1038,6 @@
       "Fiction",
       "African Americans",
       "African American women in literature",
-      "Literary Criticism",
       "Juvenile Nonfiction",
       "Literary Collections"
     ],
@@ -1106,7 +1055,6 @@
       "Aristocracy (Social class)",
       "Biography & Autobiography",
       "Fiction",
-      "Literary Criticism",
       "Painting, Japanese"
     ],
     "author": "Murasaki Shikibu",
@@ -1120,7 +1068,6 @@
   },
   {
     "categories": [
-      "Literary Criticism",
       "Fiction",
       "Juvenile Nonfiction",
       "German fiction",
@@ -1139,7 +1086,6 @@
     "categories": [
       "Fiction",
       "Intergenerational relations",
-      "Literary Criticism",
       "Performing Arts",
       "Drama"
     ],
@@ -1160,9 +1106,7 @@
       "Education",
       "History",
       "Prophecies",
-      "Literary Criticism",
-      "Dystopias in literature",
-      "Foreign Language Study"
+      "Dystopias in literature"
     ],
     "author": "George Orwell",
     "country": "United Kingdom",
@@ -1176,7 +1120,6 @@
   {
     "categories": [
       "Poetry",
-      "Literary Criticism",
       "Drama",
       "Fiction"
     ],
@@ -1193,8 +1136,6 @@
     "categories": [
       "Poets, Portuguese 20th century Biography",
       "Fiction",
-      "Literary Criticism",
-      "Foreign Language Study",
       "Poetry"
     ],
     "author": "Fernando Pessoa",
@@ -1211,7 +1152,6 @@
       "American literature",
       "Fiction",
       "Literary Collections",
-      "Literary Criticism",
       "Juvenile Fiction",
       "Children's stories",
       "Social Science"
@@ -1261,7 +1201,6 @@
       "Mexico",
       "Domestic fiction",
       "Literary Collections",
-      "Study Aids",
       "History"
     ],
     "author": "Juan Rulfo",
@@ -1294,7 +1233,6 @@
     "categories": [
       "Fiction",
       "Drama",
-      "Literary Criticism",
       "Developing countries",
       "Religion"
     ],
@@ -1364,7 +1302,6 @@
   {
     "categories": [
       "Fathers",
-      "Literary Criticism",
       "Drama",
       "English literature",
       "Literary Collections"
@@ -1382,7 +1319,6 @@
     "categories": [
       "Aging parents",
       "Drama",
-      "Literary Criticism",
       "Juvenile Nonfiction",
       "Juvenile Fiction"
     ],
@@ -1398,7 +1334,6 @@
   {
     "categories": [
       "Drama",
-      "Literary Criticism",
       "Interracial marriage"
     ],
     "author": "William Shakespeare",
@@ -1431,7 +1366,6 @@
       "Fiction",
       "History",
       "Literary Collections",
-      "Foreign Language Study",
       "Literary Criticism"
     ],
     "author": "Stendhal",
@@ -1463,7 +1397,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Physician and patient",
       "History"
     ],
@@ -1481,9 +1414,7 @@
       "Fantasy",
       "Fiction",
       "Political satire, English",
-      "Literary Criticism",
-      "Juvenile Fiction",
-      "Study Aids"
+      "Juvenile Fiction"
     ],
     "author": "Jonathan Swift",
     "country": "Ireland",
@@ -1497,7 +1428,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Peace",
       "Philosophy",
       "Photography",
@@ -1515,7 +1445,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Juvenile Fiction",
       "Literary Collections"
     ],
@@ -1532,8 +1461,7 @@
     "categories": [
       "Drama",
       "Fiction",
-      "Literary Collections",
-      "Foreign Language Study"
+      "Literary Collections"
     ],
     "author": "Leo Tolstoy",
     "country": "Russia",
@@ -1546,13 +1474,11 @@
   },
   {
     "categories": [
+      "Juvenile Fiction",
       "Fiction",
       "American wit and humor",
       "Juvenile Nonfiction",
-      "Juvenile Fiction",
-      "Literary Criticism",
-      "Education",
-      "Foreign Language Study"
+      "Education"
     ],
     "author": "Mark Twain",
     "country": "United States",
@@ -1585,9 +1511,7 @@
       "Fiction",
       "Aeneas (Legendary character) in literature",
       "Poetry",
-      "Study Aids",
       "Aeneas (Legendary character)",
-      "Literary Criticism",
       "History"
     ],
     "author": "Virgil",
@@ -1607,7 +1531,6 @@
       "Fiction",
       "Philosophy",
       "Epic literature, Sanskrit",
-      "Literary Criticism",
       "Mahābhārata"
     ],
     "author": "Vyasa",
@@ -1623,9 +1546,7 @@
     "categories": [
       "Literary Collections",
       "Poetry",
-      "Literary Criticism",
-      "American poetry",
-      "Study Aids"
+      "American poetry"
     ],
     "author": "Walt Whitman",
     "country": "United States",
@@ -1639,7 +1560,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Domestic fiction"
     ],
     "author": "Virginia Woolf",
@@ -1654,7 +1574,6 @@
   {
     "categories": [
       "Fiction",
-      "Literary Criticism",
       "Juvenile Nonfiction",
       "Juvenile Fiction"
     ],
@@ -1669,7 +1588,6 @@
   },
   {
     "categories": [
-      "Study Aids",
       "Fiction",
       "Biography & Autobiography",
       "Emperors",

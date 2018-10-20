@@ -1,6 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
-using static Demos.DemoPureFunction;
+using Books.ConsoleApp;
 
 namespace Demos
 {
@@ -8,19 +9,22 @@ namespace Demos
     {
         static void Main(string[] args)
         {
-            var x = Add(1, 2);
-            var y = Add(1, 2);
-            var z = Add(1, 2);
+            var books = new BooksJsonSource(Path.Combine(Directory.GetCurrentDirectory(), "..", "Books.Console", "books.json"))
+                .Read();
 
-            Console.WriteLine($"x = {x} y = {y} z = {z}");
-            Console.WriteLine($"x == y == z is {x == y && y == z && x == z}");
-            Console.ReadLine();
+            var huckFinn = books.Where(b => b.title.Contains("Finn")).First();
+            var rest = books.Where(b => b.title != huckFinn.title);
 
-            var a = AddAndLog(1, 2);
-            Console.WriteLine($"x = {x} a = {a}");
-            Console.WriteLine($"a == x is {a == x}");
+            huckFinn.categories = huckFinn.categories.Take(3).ToArray();
 
-            Console.ReadLine();
+            System.Console.WriteLine(BookMap.CategoryAuthorAndTitle(huckFinn));
+            System.Console.WriteLine("------------");
+
+            Recommend
+                .ByCategoryAndYear(rest, huckFinn.categories, 3)
+                .Select(BookMap.CategoryAuthorAndTitle)
+                .ToList()
+                .ForEach(System.Console.WriteLine);
         }
     }
 }
