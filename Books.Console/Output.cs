@@ -7,9 +7,10 @@ namespace Books.ConsoleApp
 {
     public static class Output
     {
+        private static List<BooksByAuthor> BooksByAuthorCatalog = new List<BooksByAuthor>();
+
         public static void BooksByAuthor(IEnumerable<Book> books)
         {
-            var BooksByAuthorCatalog = new List<BooksByAuthor>();
 
             foreach(var book in books)
             {
