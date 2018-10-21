@@ -12,7 +12,7 @@ namespace Demos
             var books = new BooksJsonSource(Path.Combine(Directory.GetCurrentDirectory(), "..", "Books.Console", "books.json"))
                 .Read();
 
-            var huckFinn = books.Where(b => b.title.Contains("Finn")).First();
+            var huckFinn = books.First(b => b.title.Contains("Finn"));
             var rest = books.Where(b => b.title != huckFinn.title);
 
             huckFinn.categories = huckFinn.categories.Take(3).ToArray();
@@ -22,7 +22,7 @@ namespace Demos
 
             Recommend
                 .ByCategoryAndYear(rest, huckFinn.categories, 3)
-                .Select(BookMap.CategoryAuthorAndTitle)
+                .ToAuthorTitleCategoriesYearString()
                 .ToList()
                 .ForEach(System.Console.WriteLine);
         }

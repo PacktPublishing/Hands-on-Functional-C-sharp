@@ -9,13 +9,13 @@ namespace Books.ConsoleApp
             IEnumerable<Book> books, IEnumerable<string> categories, int count = 10)
         {
             return books
-                .SortByMostMatchigCategories(categories)
+                .SortByMatchigCategoriesDescending(categories)
                 // if same categories - order by year - newest first
                 .ThenByDescending(b => b.year)
                 .Take(count);
         }
 
-        private static IOrderedEnumerable<Book> SortByMostMatchigCategories(this IEnumerable<Book> books,
+        private static IOrderedEnumerable<Book> SortByMatchigCategoriesDescending(this IEnumerable<Book> books,
             IEnumerable<string> categories)
         {
             // order by most instersecting categories

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,6 +37,16 @@ namespace Books.ConsoleApp
         {
             var categories = string.Join(',', b.categories);
             return $"{AuthorAndTitle(b)} [{categories}]";
+        }
+
+        public static string CategoryAuthorTitleYear(Book b)
+        {
+            return $"{CategoryAuthorAndTitle(b)} published:{b.year}";
+        }
+
+        public static IEnumerable<string> ToAuthorTitleCategoriesYearString(this IEnumerable<Book> books)
+        {
+            return books.Select(CategoryAuthorTitleYear);
         }
     }
 
