@@ -14,13 +14,13 @@ namespace Demos
             var huckFinn = books.First(b => b.title.Contains("Finn"));
             var rest = books.Where(b => b.title != huckFinn.title);
 
-            huckFinn.categories = huckFinn.categories.Take(3).ToArray();
+            huckFinn.categories = huckFinn.categories.Take(4).ToArray();
 
             Console.WriteLine(BookMap.CategoryAuthorAndTitle(huckFinn));
             Console.WriteLine("------------");
 
             Recommend
-                .ByCategoryAndYear(rest, huckFinn.categories, 3)
+                .ByCategoryAndYear(rest, huckFinn.categories, 5)
                 .ToAuthorTitleCategoriesYearString()
                 .ToList()
                 .ForEach(Console.WriteLine);
