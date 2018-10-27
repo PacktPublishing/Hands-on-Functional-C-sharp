@@ -12,9 +12,9 @@ namespace Books.ConsoleApp
         public static void Main()
         {
             IBooksSource BooksSource = new BooksJsonSource();
-            var books = BooksSource.Read();
 
             Book selected = Book.Empty;
+            var books = BooksSource.Read();
 
             while (true)
             {
@@ -29,6 +29,7 @@ namespace Books.ConsoleApp
                 if (selected != Book.Empty)
                 {
                     Console.WriteLine($"5 - Recommend similar to {selected.title} (Section 5)");
+                    Console.WriteLine($"6 - Delete {selected.title} (Section 6)");
                 }
                 Console.WriteLine("Any other key - Exit");
 
@@ -41,6 +42,13 @@ namespace Books.ConsoleApp
                     case '3': DoSearchByCategory(books); break;
                     case '4': selected = DoSelect(books); break;
                     case '5': DoRecommend(books, selected); break;
+                    case '6':
+                        {
+                            BooksSource.Delete(selected);
+                            selected = Book.Empty;
+                            books = BooksSource.Read();
+                            break;
+                        }
                     default: return;
                 }
             }
