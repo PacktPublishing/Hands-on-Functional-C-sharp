@@ -21,7 +21,7 @@ namespace Books.ConsoleApp
                 Console.WriteLine("1 - Output all books by author (Section 2)");
                 Console.WriteLine("2 - Search books by title (Section 3)");
                 Console.WriteLine("3 - Search books by category (Section 4)");
-                Console.WriteLine("4 - Select a book(Section 5)");
+                Console.WriteLine("4 - Select a book (Section 5)");
                 if (selected != Book.Empty)
                 {
                     Console.WriteLine($"5 - Recommend similar to {selected.title} (Section 5)");

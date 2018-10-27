@@ -7,7 +7,9 @@ namespace Books.ConsoleApp
 {
     public class Select
     {
-        public static Book ByTitle(Action<string> write, Func<string> read, Func<string, IEnumerable<Book>> searchByTitle)
+        public static Book ByTitle(Action<string> write, 
+            Func<string> read, 
+            Func<string, IEnumerable<Book>> searchByTitle)
         {
             write("Type title or part of it");
             var searchCriteria = read();
@@ -36,7 +38,10 @@ namespace Books.ConsoleApp
         /// 3 The Adventures of Huckleberry Finn
         /// And let the user choose one by typing in the number of the book they want
         ///</summary>
-        private static Book SelectOneOfBooksMatched(Action<string> write, Func<string> read, IEnumerable<Book> booksMatched, int matches)
+        private static Book SelectOneOfBooksMatched(Action<string> write, 
+            Func<string> read, 
+            IEnumerable<Book> booksMatched, 
+            int matches)
         {
             // build a lookup to hold books and their number
             var lookUp = booksMatched.Zip(Enumerable.Range(1, matches), (book, id) => new { id, book });
