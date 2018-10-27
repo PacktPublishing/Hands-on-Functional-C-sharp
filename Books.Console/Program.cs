@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 namespace Books.ConsoleApp
 {
     class Program
-    {
-        private static IBooksSource BooksSource = new BooksJsonSource();
-        
+    {        
         public static void Main()
         {
+            IBooksSource BooksSource = new BooksJsonSource();
+            var books = BooksSource.Read();
+
             while (true)
             {
                 Console.WriteLine("\nActions available:");
@@ -24,26 +25,24 @@ namespace Books.ConsoleApp
                 var key = Console.ReadKey();
                 switch (key.KeyChar)
                 {
-                    case '1': Output.BooksByAuthor(BooksSource.Read()); break;
-                    case '2': DoSearchByTitle(); break;
-                    case '3': DoSearchByCategory(); break;
+                    case '1': Output.BooksByAuthor(books); break;
+                    case '2': DoSearchByTitle(books); break;
+                    case '3': DoSearchByCategory(books); break;
                     default: return;
                 }
             }
         }
 
-        public static void DoSearchByTitle()
+        public static void DoSearchByTitle(IEnumerable<Book> books)
         {
-            var books = BooksSource.Read();
             DoSearch(
                 searchPrompt: "Search by book title or a part of it.", 
                 searchFunc: searchTerm => Search.ByTitle(books, searchTerm)
                     .Select(b => BookMap.AuthorAndTitle(b)));
         }
 
-        private static void DoSearchByCategory ()
+        private static void DoSearchByCategory(IEnumerable<Book> books)
         {
-            var books = BooksSource.Read();
             DoSearch("Search by book category or a part of it. \n" +
                 "(for example: fic or Fiction or aut or bio or autobiography) \n" +
                 "comma separated lists acceptable : juv, sci",
