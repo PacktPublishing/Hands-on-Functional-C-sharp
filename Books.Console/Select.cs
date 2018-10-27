@@ -30,11 +30,12 @@ namespace Books.ConsoleApp
         }
 
         ///<summary>       
-        /// Build a ordered numbered representation of the matched books:
-        /// 1 Huckleberry Finn\n
-        /// 2 The Three-Body Proble
+        /// Build a numbered representation of the matched books:
+        /// 1 Huckleberry Finn
+        /// 2 The Three-Body Problem
         /// 3 Life
-        /// And let the user choose one by typing in the number of books
+        /// 
+        /// And let the user choose one by typing in the number of the book they want
         ///</summary>
         private static Book SelectOneOfBooksMatched(Action<string> write, Func<string> read, IEnumerable<Book> booksMatched, int matches)
         {
