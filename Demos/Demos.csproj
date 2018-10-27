@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="books.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="books.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Books.Console\Books.Console.csproj" />
   </ItemGroup>
 

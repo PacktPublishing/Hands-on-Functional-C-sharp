@@ -9,22 +9,23 @@ namespace Demos
     {
         static void Main(string[] args)
         {
-            var books = new BooksJsonSource(Path.Combine(Directory.GetCurrentDirectory(), "..", "Books.Console", "books.json"))
-                .Read();
+            var books = new BooksJsonSource().Read();
 
             var huckFinn = books.First(b => b.title.Contains("Finn"));
             var rest = books.Where(b => b.title != huckFinn.title);
 
-            huckFinn.categories = huckFinn.categories.Take(3).ToArray();
+            huckFinn.categories = huckFinn.categories.Take(4).ToArray();
 
-            System.Console.WriteLine(BookMap.CategoryAuthorAndTitle(huckFinn));
-            System.Console.WriteLine("------------");
+            Console.WriteLine(BookMap.CategoryAuthorAndTitle(huckFinn));
+            Console.WriteLine("------------");
 
             Recommend
-                .ByCategoryAndYear(rest, huckFinn.categories, 3)
+                .ByCategoryAndYear(rest, huckFinn.categories, 5)
                 .ToAuthorTitleCategoriesYearString()
                 .ToList()
-                .ForEach(System.Console.WriteLine);
+                .ForEach(Console.WriteLine);
+
+            Console.ReadLine();
         }
     }
 }
