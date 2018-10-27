@@ -9,6 +9,7 @@ namespace Books.ConsoleApp
 {
     class Program
     {
+        private static int NumberOfRecommendations = 5;
         private static IBooksSource BooksSource = new BooksJsonSource();
 
         public static void Main()
@@ -23,7 +24,7 @@ namespace Books.ConsoleApp
                 Console.WriteLine("4 - Select a book(Section 5)");
                 if (selected != Book.Empty)
                 {
-                    Console.WriteLine($"5 - Recommend similar to {selected.title}");
+                    Console.WriteLine($"5 - Recommend similar to {selected.title} (Section 5)");
                 }
                 Console.WriteLine("Any other key - Exit");
 
@@ -42,7 +43,12 @@ namespace Books.ConsoleApp
 
         private static void DoRecommend(Book selected)
         {
-            Recommend()
+            var rest = BooksSource.Read().Where(b => b.title != selected.title);
+            var recommended = Recommend.ByCategoryAndYear(rest, selected.categories, NumberOfRecommendations);
+            foreach(var r in recommended) 
+            {
+                System.Console.WriteLine(BookMap.CategoryAuthorTitleYear(r));
+            }
         }
 
         public static void DoSearchByTitle()
