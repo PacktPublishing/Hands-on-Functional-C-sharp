@@ -25,11 +25,11 @@ namespace Books.ConsoleApp
             }
             else
             {
-                return SelectOneOfMetchedBooks(write, read, booksMatched, matches);
+                return SelectOneOfBooksMatched(write, read, booksMatched, matches);
             }
         }
 
-        private static Book SelectOneOfMetchedBooks(Action<string> write, Func<string> read, IEnumerable<Book> booksMatched, int matches)
+        private static Book SelectOneOfBooksMatched(Action<string> write, Func<string> read, IEnumerable<Book> booksMatched, int matches)
         {
             var lookUp = booksMatched.Zip(Enumerable.Range(1, matches), (b, id) => new { id, b });
             var listBooksAndNumberThemForSelection = lookUp
