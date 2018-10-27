@@ -30,12 +30,12 @@ namespace Books.ConsoleApp
             OutputBooksByAuthor(BooksByAuthorCatalog);
         }
 
-        private static bool AuthorIsAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
+        private static bool AuthorIsAlreadyCataloged(string author)
         {
             return BooksByAuthorCatalog.Any(ba => ba.Author == author);
         }
 
-        private static BooksByAuthor LocateAuthorAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
+        private static BooksByAuthor LocateAuthorAlreadyCataloged(string author)
         {
             return BooksByAuthorCatalog.First(ba => ba.Author == author);
         }
