@@ -7,16 +7,18 @@ namespace Books.ConsoleApp
 {
     public static class Output
     {
+        private static IList<BooksByAuthor> BooksByAuthorCatalog;
+
         public static void BooksByAuthor(IEnumerable<Book> books)
         {
-            var BooksByAuthorCatalog = new List<BooksByAuthor>();
+            BooksByAuthorCatalog = new List<BooksByAuthor>();
 
             foreach(var book in books)
             {
-                if (AuthorIsAlreadyCataloged(BooksByAuthorCatalog, book.author))
+                if (AuthorIsAlreadyCataloged(book.author))
                 {
                     // there are some(1 or more) books by this author already found and catalogued
-                    var authorAndBooks = LocateAuthorAlreadyCataloged(BooksByAuthorCatalog, book.author);
+                    var authorAndBooks = LocateAuthorAlreadyCataloged(book.author);
                     authorAndBooks.Books.Add(book);
                 }
                 else
@@ -26,15 +28,15 @@ namespace Books.ConsoleApp
             }
 
             // now we have an list that has all the authors catalogued
-            OutputBooksByAuthor(BooksByAuthorCatalog);
+            OutputBooksByAuthor();
         }
 
-        private static bool AuthorIsAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
+        private static bool AuthorIsAlreadyCataloged(string author)
         {
             return BooksByAuthorCatalog.Any(ba => ba.Author == author);
         }
 
-        private static BooksByAuthor LocateAuthorAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
+        private static BooksByAuthor LocateAuthorAlreadyCataloged(string author)
         {
             return BooksByAuthorCatalog.First(ba => ba.Author == author);
         }
@@ -48,7 +50,7 @@ namespace Books.ConsoleApp
         }
 
 
-        private static void OutputBooksByAuthor(List<BooksByAuthor> BooksByAuthorCatalog)
+        private static void OutputBooksByAuthor()
         {
             foreach(var ba in BooksByAuthorCatalog)
             {
