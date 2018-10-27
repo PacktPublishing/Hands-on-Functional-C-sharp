@@ -8,18 +8,24 @@ using System.Threading.Tasks;
 namespace Books.ConsoleApp
 {
     class Program
-    {        
+    {
         public static void Main()
         {
             IBooksSource BooksSource = new BooksJsonSource();
             var books = BooksSource.Read();
 
+            Book selected = Book.Empty;
             while (true)
             {
                 Console.WriteLine("\nActions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
                 Console.WriteLine("2 - Search books by title (Section 3)");
                 Console.WriteLine("3 - Search books by category (Section 4)");
+                Console.WriteLine("4 - Select a book(Section 5)");
+                if (selected != Book.Empty)
+                {
+                    Console.WriteLine($"5 - Recommend similar to {selected.title} (Section 5)");
+                }
                 Console.WriteLine("Any other key - Exit");
 
                 var key = Console.ReadKey();
@@ -28,9 +34,23 @@ namespace Books.ConsoleApp
                     case '1': Output.BooksByAuthor(books); break;
                     case '2': DoSearchByTitle(books); break;
                     case '3': DoSearchByCategory(books); break;
+                    case '4': selected = DoSelect(books); break;
+                    case '5': DoRecommend(books, selected); break;
                     default: return;
                 }
             }
+        }
+
+        private static Book DoSelect(Book[] books)
+        {
+            return Select.ByTitle(Console.WriteLine,
+                Console.ReadLine,
+                searchStr => Search.ByTitle(books, searchStr));
+        }
+
+        private static void DoRecommend(Book[] books, Book selected)
+        {
+            throw new NotImplementedException();
         }
 
         public static void DoSearchByTitle(IEnumerable<Book> books)
