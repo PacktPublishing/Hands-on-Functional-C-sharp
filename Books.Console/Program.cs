@@ -15,6 +15,7 @@ namespace Books.ConsoleApp
             var books = BooksSource.Read();
 
             Book selected = Book.Empty;
+
             while (true)
             {
                 Console.WriteLine("\nActions available:");
@@ -50,7 +51,8 @@ namespace Books.ConsoleApp
 
         private static void DoRecommend(Book[] books, Book selected)
         {
-            throw new NotImplementedException();
+            var rest = books.Where(b => b.title != selected.title);
+            Recommend.ByCategoryAndYear(rest, selected.categories.Take(3), 5);
         }
 
         public static void DoSearchByTitle(IEnumerable<Book> books)
