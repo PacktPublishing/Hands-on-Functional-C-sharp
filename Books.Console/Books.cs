@@ -53,6 +53,7 @@ namespace Books.ConsoleApp
     {
         Book[] Read();
         void Delete(Book book);
+        void Add(Book book);
     }
 
     public class BooksJsonSource : IBooksSource
@@ -64,10 +65,22 @@ namespace Books.ConsoleApp
             booksJsonFile = booksFile;
         }
 
+        public void Add(Book book)
+        {
+            var books = Read();
+            var plusAdded = books.Concat(new[] { book });
+            writeBooksToFile(plusAdded);
+        }
+
         public void Delete(Book book)
         {
             var books = Read();
             var removed = books.Where(b => b.title != book.title && b.author != book.author);
+            writeBooksToFile(removed);
+        }
+
+        private void writeBooksToFile(IEnumerable<Book> removed)
+        {
             var stringified = JsonConvert.SerializeObject(removed, Formatting.Indented);
             File.WriteAllText(booksJsonFile, stringified);
         }

@@ -19,7 +19,7 @@ namespace Books.ConsoleApp
             while (true)
             {
                 Console.WriteLine(selected == Book.Empty
-                    ? "No book selected" 
+                    ? "No book selected"
                     : $"Selected: {BookMap.AuthorAndTitle(selected)}");
                 Console.WriteLine("\nActions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
@@ -31,6 +31,7 @@ namespace Books.ConsoleApp
                     Console.WriteLine($"5 - Recommend similar to {selected.title} (Section 5)");
                     Console.WriteLine($"6 - Delete {selected.title} (Section 6)");
                 }
+                Console.WriteLine("7 - Add a book (Section 6)");
                 Console.WriteLine("Any other key - Exit");
 
                 var key = Console.ReadKey();
@@ -46,6 +47,18 @@ namespace Books.ConsoleApp
                         {
                             BooksSource.Delete(selected);
                             selected = Book.Empty;
+                            books = BooksSource.Read();
+                            break;
+                        }
+                    case '7':
+                        {
+                            Add.Book(s =>
+                            {
+                                Console.Write(s);
+                                return Console.ReadLine();
+                            },
+                            BooksSource.Add);
+                            // update books 
                             books = BooksSource.Read();
                             break;
                         }
@@ -74,7 +87,7 @@ namespace Books.ConsoleApp
         public static void DoSearchByTitle(IEnumerable<Book> books)
         {
             DoSearch(
-                searchPrompt: "Search by book title or a part of it.", 
+                searchPrompt: "Search by book title or a part of it.",
                 searchFunc: searchTerm => Search.ByTitle(books, searchTerm)
                     .Select(b => BookMap.AuthorAndTitle(b)));
         }
@@ -90,7 +103,7 @@ namespace Books.ConsoleApp
                         .Highlight(searchTerm.FromCommaSeparatedList())
                         );
         }
-            
+
         private static void DoSearch(string searchPrompt, Func<string, IEnumerable<string>> searchFunc)
         {
             while (true)
