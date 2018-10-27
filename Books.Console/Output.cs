@@ -27,7 +27,7 @@ namespace Books.ConsoleApp
             }
 
             // now we have an list that has all the authors catalogued
-            OutputBooksByAuthor(BooksByAuthorCatalog);
+            OutputBooksByAuthor();
         }
 
         private static bool AuthorIsAlreadyCataloged(string author)
@@ -49,7 +49,7 @@ namespace Books.ConsoleApp
         }
 
 
-        private static void OutputBooksByAuthor(List<BooksByAuthor> BooksByAuthorCatalog)
+        private static void OutputBooksByAuthor()
         {
             foreach(var ba in BooksByAuthorCatalog)
             {
