@@ -5,29 +5,25 @@ using System.Text;
 
 namespace Books.ConsoleApp
 {
-    public class Select
+    public static class Select
     {
-        public static Book ByTitle(Action<string> write, 
-            Func<string> read, 
+        public static Book ByTitle(Action<string> write,
+            Func<string> read,
             Func<string, IEnumerable<Book>> searchByTitle)
         {
             write("Type title or part of it");
             var searchCriteria = read();
             var booksMatched = searchByTitle(searchCriteria);
-            var matches = booksMatched.Count();
 
-            if (matches == 0)
+            switch (booksMatched.Count())
             {
-                write("No books found by that criteria.");
-                return ByTitle(write, read, searchByTitle);
-            }
-            else if (matches == 1)
-            {
-                return booksMatched.First();
-            }
-            else
-            {
-                return SelectOneOfBooksMatched(write, read, booksMatched, matches);
+                case 0:
+                    write("No books found by that criteria.");
+                    return ByTitle(write, read, searchByTitle);
+                case 1:
+                    return booksMatched.First();
+                default:
+                    return SelectOneOfBooksMatched(write, read, booksMatched);
             }
         }
 
@@ -38,36 +34,40 @@ namespace Books.ConsoleApp
         /// 3 The Adventures of Huckleberry Finn
         /// And let the user choose one by typing in the number of the book they want
         ///</summary>
-        private static Book SelectOneOfBooksMatched(Action<string> write, 
-            Func<string> read, 
-            IEnumerable<Book> booksMatched, 
-            int matches)
+        private static Book SelectOneOfBooksMatched(Action<string> write,
+            Func<string> read,
+            IEnumerable<Book> booksMatched)
         {
-            // build a lookup to hold books and their number
-            var lookUp = booksMatched.Zip(Enumerable.Range(1, matches), (book, id) => new { id, book });
+            booksMatched
+                .Zip(Enumerable.Range(1, booksMatched.Count()), (book, id) => new { id, book })
+                .Aggregate(new StringBuilder(), (str, next) => str.AppendLine($"{next.id} {next.book.title}"))
+                .ToString()
+                .Invoke(write);
 
-            // build a string representation for the user
-            var listBooksAndNumberThemForSelection = lookUp
-                    .Aggregate(new StringBuilder(), (str, next) => str.AppendLine($"{next.id} {next.book.title}"))
-                    .ToString();
-            // prompt the user for input
-            write(listBooksAndNumberThemForSelection);
-            var idInput = read();
-
-            // parse input and look-up the book by its number
-            int selectedId = 0;
-            var parsedSuccessfully = int.TryParse(idInput, out selectedId);
-            if (!parsedSuccessfully)
-            {
-                // user typed not a number - return the "Empty book" instead of null
-                return Book.Empty;
-            }
-            else
-            {
-                var matched = lookUp.FirstOrDefault(l => l.id == selectedId);                
-                // return the matched book or the "Empty book" if the number is too high
-                return matched != null ? matched.book : Book.Empty;
-            }
+            return read()
+                .TryParseInt()
+                .Select(i => i != null
+                    ? booksMatched.Skip(i.Value - 1).Take(1).FirstOrDefault() ?? Book.Empty
+                    : Book.Empty
+                );
         }
     }
+    internal static class Extensions
+    {
+        internal static void Invoke(this string str, Action<string> action)
+        {
+            action(str);
+        }
+
+        internal static T Select<T>(this int? num, Func<int?, T> selector)
+        {
+            return selector(num);
+        }
+
+        internal static int? TryParseInt(this string str)
+        {
+            return int.TryParse(str, out int x) ? x : default(int?);
+        }
+    }
+
 }
