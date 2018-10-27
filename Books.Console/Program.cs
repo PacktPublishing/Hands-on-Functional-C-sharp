@@ -18,6 +18,9 @@ namespace Books.ConsoleApp
 
             while (true)
             {
+                Console.WriteLine(selected == Book.Empty
+                    ? "No book selected" 
+                    : $"Selected: {BookMap.AuthorAndTitle(selected)}");
                 Console.WriteLine("\nActions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
                 Console.WriteLine("2 - Search books by title (Section 3)");
@@ -30,6 +33,7 @@ namespace Books.ConsoleApp
                 Console.WriteLine("Any other key - Exit");
 
                 var key = Console.ReadKey();
+                Console.WriteLine();
                 switch (key.KeyChar)
                 {
                     case '1': Output.BooksByAuthor(books); break;
@@ -52,6 +56,7 @@ namespace Books.ConsoleApp
         private static void DoRecommend(Book[] books, Book selected)
         {
             var rest = books.Where(b => b.title != selected.title);
+            Console.WriteLine("Recommended books:");
             Recommend.ByCategoryAndYear(rest, selected.categories.Take(3), 5)
                 .ToAuthorTitleCategoriesYearString()
                 .ToList()
