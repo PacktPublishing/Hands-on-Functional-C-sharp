@@ -29,24 +29,39 @@ namespace Books.ConsoleApp
             }
         }
 
+        ///<summary>       
+        /// Build a ordered numbered representation of the matched books:
+        /// 1 Huckleberry Finn\n
+        /// 2 The Three-Body Proble
+        /// 3 Life
+        /// And let the user choose one by typing in the number of books
+        ///</summary>
         private static Book SelectOneOfBooksMatched(Action<string> write, Func<string> read, IEnumerable<Book> booksMatched, int matches)
         {
+            // build a lookup to hold books and their number
             var lookUp = booksMatched.Zip(Enumerable.Range(1, matches), (b, id) => new { id, b });
+
+            // build a string representation for the user
             var listBooksAndNumberThemForSelection = lookUp
                     .Aggregate(new StringBuilder(), (str, next) => str.AppendLine($"{next.id} {next.b.title}"))
                     .ToString();
+            // prompt the user for input
             write(listBooksAndNumberThemForSelection);
             var idInput = read();
 
+            // parse input and look-up the book by its number
             int selectedId = 0;
             var parsedSuccessfully = int.TryParse(idInput, out selectedId);
             if (!parsedSuccessfully)
             {
+                // return the "Empty book" instead of null
                 return Book.Empty;
             }
             else
             {
-                return lookUp.FirstOrDefault(l => l.id == selectedId)?.b ?? Book.Empty;
+                var matchedBook = lookUp.FirstOrDefault(l => l.id == selectedId);
+                // return the matched book or the "Empty book" if the number is too high
+                return matchedBook?.b ?? Book.Empty;
             }
         }
     }
