@@ -7,10 +7,9 @@ namespace Books.ConsoleApp
 {
     public static class Output
     {
-        private static List<BooksByAuthor> BooksByAuthorCatalog = new List<BooksByAuthor>();
-
         public static void BooksByAuthor(IEnumerable<Book> books)
         {
+            var BooksByAuthorCatalog = new List<BooksByAuthor>();
 
             foreach(var book in books)
             {
@@ -27,15 +26,15 @@ namespace Books.ConsoleApp
             }
 
             // now we have an list that has all the authors catalogued
-            OutputBooksByAuthor();
+            OutputBooksByAuthor(BooksByAuthorCatalog);
         }
 
-        private static bool AuthorIsAlreadyCataloged(string author)
+        private static bool AuthorIsAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
         {
             return BooksByAuthorCatalog.Any(ba => ba.Author == author);
         }
 
-        private static BooksByAuthor LocateAuthorAlreadyCataloged(string author)
+        private static BooksByAuthor LocateAuthorAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
         {
             return BooksByAuthorCatalog.First(ba => ba.Author == author);
         }
@@ -49,7 +48,7 @@ namespace Books.ConsoleApp
         }
 
 
-        private static void OutputBooksByAuthor()
+        private static void OutputBooksByAuthor(List<BooksByAuthor> BooksByAuthorCatalog)
         {
             foreach(var ba in BooksByAuthorCatalog)
             {
