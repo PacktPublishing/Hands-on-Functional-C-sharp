@@ -23,7 +23,7 @@ namespace Books.ConsoleApp
                 Console.WriteLine("4 - Select a book(Section 5)");
                 if (selected != Book.Empty)
                 {
-                    Console.WriteLine($"5 - Delete {selected.title}");
+                    Console.WriteLine($"5 - Recommend similar to {selected.title}");
                 }
                 Console.WriteLine("Any other key - Exit");
 
@@ -34,20 +34,15 @@ namespace Books.ConsoleApp
                     case "2": DoSearchByTitle(); break;
                     case "3": DoSearchByCategory(); break;
                     case "4": selected = DoSelectABook(); break;
-                    case "5":
-                        {
-                            DoDelete(selected);
-                            selected = Book.Empty;
-                            break;
-                        }
+                    case "5": DoRecommend(selected); break;
                     default: return;
                 }
             }
         }
 
-        private static void DoDelete(Book selected)
+        private static void DoRecommend(Book selected)
         {
-            Console.WriteLine("Deleted");
+            Recommend()
         }
 
         public static void DoSearchByTitle()
