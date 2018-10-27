@@ -52,7 +52,10 @@ namespace Books.ConsoleApp
         private static void DoRecommend(Book[] books, Book selected)
         {
             var rest = books.Where(b => b.title != selected.title);
-            Recommend.ByCategoryAndYear(rest, selected.categories.Take(3), 5);
+            Recommend.ByCategoryAndYear(rest, selected.categories.Take(3), 5)
+                .ToAuthorTitleCategoriesYearString()
+                .ToList()
+                .ForEach(Console.WriteLine);
         }
 
         public static void DoSearchByTitle(IEnumerable<Book> books)
