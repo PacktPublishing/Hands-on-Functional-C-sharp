@@ -79,9 +79,9 @@ namespace Books.ConsoleApp
             writeBooksToFile(removed);
         }
 
-        private void writeBooksToFile(IEnumerable<Book> removed)
+        private void writeBooksToFile(IEnumerable<Book> books)
         {
-            var stringified = JsonConvert.SerializeObject(removed, Formatting.Indented);
+            var stringified = JsonConvert.SerializeObject(books, Formatting.Indented);
             File.WriteAllText(booksJsonFile, stringified);
         }
 

@@ -20,7 +20,7 @@ namespace Books.ConsoleApp
             {
                 Console.WriteLine(selected == Book.Empty
                     ? "No book selected"
-                    : $"Selected: {BookMap.AuthorAndTitle(selected)}");
+                    : $"Selected: {BookMap.CategoryAuthorAndTitle(selected)}");
                 Console.WriteLine("\nActions available:");
                 Console.WriteLine("1 - Output all books by author (Section 2)");
                 Console.WriteLine("2 - Search books by title (Section 3)");
