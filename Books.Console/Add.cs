@@ -18,7 +18,7 @@ namespace Books.ConsoleApp
             // basic validation
             while (!int.TryParse(yearMaybe, out year))
             {
-                yearMaybe = Prompt("Invalid year. Please try again to specify year:");
+                yearMaybe = Prompt("Invalid year. Please try to specify year again:");
             }
             newBook.year = year;
 
