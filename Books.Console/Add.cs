@@ -4,7 +4,7 @@ namespace Books.ConsoleApp
 {
     public class Add
     {
-        public static void Book()
+        public static void Book(Func<string, string> Prompt, Action<Book> Persist)
         {
             var newBook = new Book();
 
@@ -23,18 +23,6 @@ namespace Books.ConsoleApp
             newBook.year = year;
 
             Persist(newBook);
-        }
-
-        private static string Prompt(string info)
-        {
-            Console.WriteLine(info);
-            return Console.ReadLine();
-        }
-
-        private static void Persist(Book book)
-        {
-            var source = new BooksJsonSource();
-            source.Add(book);
         }
     }
 }
