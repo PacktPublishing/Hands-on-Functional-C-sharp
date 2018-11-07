@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Books.ConsoleApp
+namespace Books.Core
 {
     public class Select
     {

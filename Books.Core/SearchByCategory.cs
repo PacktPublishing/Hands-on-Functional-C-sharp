@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Books.ConsoleApp
+namespace Books.Core
 {
     public static class SearchByCategory
     {

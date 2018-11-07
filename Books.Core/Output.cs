@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Books.ConsoleApp
+namespace Books.Core
 {
     public static class Output
     {
-        public static void BooksByAuthor(IEnumerable<Book> books)
+        public static void BooksByAuthor(IEnumerable<Book> books, Action<string> output)
         {
             var BooksByAuthorCatalog = new List<BooksByAuthor>();
 
@@ -26,7 +26,7 @@ namespace Books.ConsoleApp
             }
 
             // now we have an list that has all the authors catalogued
-            OutputBooksByAuthor(BooksByAuthorCatalog);
+            OutputBooksByAuthor(BooksByAuthorCatalog, output);
         }
 
         private static bool AuthorIsAlreadyCataloged(List<BooksByAuthor> BooksByAuthorCatalog, string author)
@@ -48,16 +48,16 @@ namespace Books.ConsoleApp
         }
 
 
-        private static void OutputBooksByAuthor(List<BooksByAuthor> BooksByAuthorCatalog)
+        private static void OutputBooksByAuthor(List<BooksByAuthor> BooksByAuthorCatalog, Action<string> output)
         {
             foreach(var ba in BooksByAuthorCatalog)
             {
-                Console.Write("Author: {0,-28} Books: ", ba.Author);
+                output(string.Format("Author: {0,-28} Books: ", ba.Author));
                 foreach (var book in ba.Books)
                 {
-                    Console.Write(book.title + ", ");
+                    output(book.title + ", ");
                 }
-                Console.Write(Environment.NewLine);
+                output(Environment.NewLine);
             }
         }
     }

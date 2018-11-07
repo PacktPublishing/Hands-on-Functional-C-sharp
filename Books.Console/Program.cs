@@ -1,10 +1,10 @@
 ﻿
-#region imports
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-#endregion
+using Books.Core;
+using Books.Infrastructure;
+
 namespace Books.ConsoleApp
 {
     class Program
@@ -38,7 +38,7 @@ namespace Books.ConsoleApp
                 Console.WriteLine();
                 switch (key.KeyChar)
                 {
-                    case '1': Output.BooksByAuthor(books); break;
+                    case '1': Output.BooksByAuthor(books, Console.Write); break;
                     case '2': DoSearchByTitle(books); break;
                     case '3': DoSearchByCategory(books); break;
                     case '4': selected = DoSelect(books); break;
