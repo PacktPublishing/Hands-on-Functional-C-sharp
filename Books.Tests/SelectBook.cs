@@ -14,7 +14,7 @@ namespace Books.Tests
         {
             // arrange
             var outputs = new List<string>();              
-            var read = SetupWriteFunc(new[] { "test", "mest" });
+            var read = SetupReadFunc(new[] { "test", "mest" });
 
             // act
             var selected = Select
@@ -24,18 +24,18 @@ namespace Books.Tests
             Assert.Equal("Test", selected.title);
         }
 
-        private Func<string> SetupWriteFunc(IEnumerable<string> inputs)
+        private Func<string> SetupReadFunc(IEnumerable<string> inputs)
         {
             return () =>
             {
-                var res = A.Head(inputs);
-                inputs = res.tail;
-                return res.head;
+                var (head, tail) = A.Head(inputs);
+                inputs = tail;
+                return head;
             };
         }
     }
 
-    public static class A
+    public class A
     {
         public static (T head, IEnumerable<T> tail) Head<T>(IEnumerable<T> collection)
         {
