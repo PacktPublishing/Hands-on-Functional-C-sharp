@@ -52,12 +52,14 @@ namespace Books.ConsoleApp
                         }
                     case '7':
                         {
-                            Add.Book(s =>
-                            {
-                                Console.Write(s);
-                                return Console.ReadLine();
-                            },
-                            BooksSource.Add);
+                            Add.Book(
+                                prompt: s =>
+                                {
+                                    Console.WriteLine(s);
+                                    return Console.ReadLine();
+                                },
+                                add: BooksSource.Add
+                            );
                             // update books 
                             books = BooksSource.Read();
                             break;
