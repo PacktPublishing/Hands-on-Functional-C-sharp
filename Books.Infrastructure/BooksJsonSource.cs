@@ -38,7 +38,7 @@ namespace Books.Infrastructure
 
         public Book[] Read()
         {
-            var rawJsonBooks = System.IO.File.ReadAllText(booksJsonFile);
+            var rawJsonBooks = File.ReadAllText(booksJsonFile);
 
             return JsonConvert.DeserializeObject<Book[]>(rawJsonBooks);
         }
