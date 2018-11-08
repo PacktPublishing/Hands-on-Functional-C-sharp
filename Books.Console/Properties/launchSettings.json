@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Books.Console": {
+      "commandName": "Project",
+      "workingDirectory": "$(OutDir)"
+    }
+  }
+}
