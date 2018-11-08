@@ -5,11 +5,9 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Books.Console", "Books.Console\Books.Console.csproj", "{4F6FCD28-E666-4FD7-B5E1-89C3C4A40A25}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Books.Tests", "Books.Tests\Books.Tests.csproj", "{22B6E841-0069-4D7A-9996-D3345093D3C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Books.Core", "Books.Core\Books.Core.csproj", "{1149176C-9523-4DED-95FF-680E2FC1F692}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Core", "Books.Core\Books.Core.csproj", "{1149176C-9523-4DED-95FF-680E2FC1F692}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Infrastructure", "Books.Infrastructure\Books.Infrastructure.csproj", "{E79E20E1-F9D6-4AA5-8C02-2B68C3F474EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Books.Infrastructure", "Books.Infrastructure\Books.Infrastructure.csproj", "{E79E20E1-F9D6-4AA5-8C02-2B68C3F474EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{4F6FCD28-E666-4FD7-B5E1-89C3C4A40A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F6FCD28-E666-4FD7-B5E1-89C3C4A40A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F6FCD28-E666-4FD7-B5E1-89C3C4A40A25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22B6E841-0069-4D7A-9996-D3345093D3C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22B6E841-0069-4D7A-9996-D3345093D3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22B6E841-0069-4D7A-9996-D3345093D3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22B6E841-0069-4D7A-9996-D3345093D3C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1149176C-9523-4DED-95FF-680E2FC1F692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1149176C-9523-4DED-95FF-680E2FC1F692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1149176C-9523-4DED-95FF-680E2FC1F692}.Release|Any CPU.ActiveCfg = Release|Any CPU
