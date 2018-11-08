@@ -28,16 +28,13 @@ namespace Books.Tests
         {
             return () =>
             {
-                var (head, tail) = A.Head(inputs);
+                var (head, tail) = Head(inputs);
                 inputs = tail;
                 return head;
             };
         }
-    }
 
-    public class A
-    {
-        public static (T head, IEnumerable<T> tail) Head<T>(IEnumerable<T> collection)
+        private(T head, IEnumerable<T> tail) Head<T>(IEnumerable<T> collection)
         {
             var empty = (default(T), default(IEnumerable<T>));
             if (collection == null)
