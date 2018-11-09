@@ -1,14 +1,11 @@
-﻿using Books.ConsoleApp;
-using Books.Core;
-using System;
+﻿using Books.Core;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace Books.Tests
 {
-    
+
     public class SearchByTitleTests
     {
         [Fact]
