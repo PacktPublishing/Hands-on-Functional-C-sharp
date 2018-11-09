@@ -12,13 +12,11 @@ namespace Books.Tests
         public void WhenASingleBookIsReturnedByTheSearchFunction_ShouldReturnThatBook()
         {
             // arrange
-           
-
             // act
             //var selected = Select.ByTitle(outputs.Add, read, search);
 
             // assert 
-            //Assert.Equal(expectedTitleFound, selected.title);
+            // Assert.Equal(expectedTitleFound, selected.title);
         }
 
         [Fact]
@@ -33,24 +31,14 @@ namespace Books.Tests
             //Assert.Equal(expectedOutputs, outputs);
         }
 
-        private Func<string> ReadFuncReturning(params string[] inputs)
+        private Func<string> ReadFuncReturning()
         {
-            return () =>
-            {
-                var (head, tail) = Head(inputs);
-                inputs = tail?.ToArray();
-                return head;
-            };
+            return () => string.Empty;
         }
 
         private Func<string, IEnumerable<Book>> SearchFuncReturning(params IEnumerable<Book>[] booksToReturn)
         {
-            return s =>
-            {
-                var (head, tail) = Head(booksToReturn);
-                booksToReturn = tail?.ToArray();
-                return head;
-            };
+            return s => Enumerable.Empty<Book>();
         }
 
         private (T head, IEnumerable<T> tail) Head<T>(IEnumerable<T> collection)
