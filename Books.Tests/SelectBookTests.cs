@@ -1,4 +1,3 @@
-using Books.ConsoleApp;
 using Books.Core;
 using System;
 using System.Collections.Generic;
