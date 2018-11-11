@@ -87,25 +87,6 @@ namespace Books.Tests
         }
 
         [Fact]
-        public void WhenMultipleBooksFound_ShouldReturnTheBookUserSelectedByNumber()
-        {
-            // arrange
-            var outputs = new List<string>();
-            // the second input actually matters so we'll input 1
-            var read = ReadFuncReturning("", "1");
-            var search = SearchFuncReturning(
-                new[] { new Book { title = "Test" } }, new[] { new Book { title = "Test1" } });
-            var expectedTitleFound = "Test";
-
-            // act
-            var selected = Select
-                .ByTitle(outputs.Add, read, search);
-
-            // assert 
-            Assert.Equal(expectedTitleFound, selected.title);
-        }
-
-        [Fact]
         public void WhenMultipleBooksFound_ShouldExpectUserInfo()
         {
             // arrange
@@ -127,6 +108,26 @@ namespace Books.Tests
             // assert 
             Assert.Equal(expectedUserInfo, outputs);
         }
+
+        [Fact]
+        public void WhenMultipleBooksFound_ShouldReturnTheBookUserSelectedByNumber()
+        {
+            // arrange
+            var outputs = new List<string>();
+            // the second input actually matters so we'll input 1
+            var read = ReadFuncReturning("", "1");
+            var search = SearchFuncReturning(
+                new[] { new Book { title = "Test" } }, new[] { new Book { title = "Test1" } });
+            var expectedTitleFound = "Test";
+
+            // act
+            var selected = Select
+                .ByTitle(outputs.Add, read, search);
+
+            // assert 
+            Assert.Equal(expectedTitleFound, selected.title);
+        }
+
 
         private Func<string> ReadFuncReturning(params string[] inputs)
         {
