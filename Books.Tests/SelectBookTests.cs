@@ -94,7 +94,7 @@ namespace Books.Tests
             // the second input actually matters so we'll input 1
             var read = ReadFuncReturning("", "1");
             var search = SearchFuncReturning(
-                new[] { new Book { title = "Test" } }, new[] { new Book { title = "Test1" } });
+                new[] { new Book { title = "Test" }, new Book { title = "Test1" } });
             var expectedTitleFound = "Test";
 
             // act
@@ -113,11 +113,10 @@ namespace Books.Tests
             // the second input actually matters so we'll input 1
             var read = ReadFuncReturning("", "1");
             var search = SearchFuncReturning(
-                new[] { new Book { title = "Test" } }, new[] { new Book { title = "Test1" } });
+                new[] { new Book { title = "Test" }, new Book { title = "Test1" } });
             var expectedUserInfo = new[] {
                 "Type title or part of it",
-                "1 Test",
-                "2 Test1"
+                "1 Test\r\n2 Test1\r\n"
             };
 
             // act
