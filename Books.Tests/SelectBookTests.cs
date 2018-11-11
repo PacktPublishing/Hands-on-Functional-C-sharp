@@ -116,7 +116,7 @@ namespace Books.Tests
                 new[] { new Book { title = "Test" }, new Book { title = "Test1" } });
             var expectedUserInfo = new[] {
                 "Type title or part of it",
-                "1 Test\r\n2 Test1\r\n"
+                $"1 Test{Environment.NewLine}2 Test1{Environment.NewLine}"
             };
 
             // act
