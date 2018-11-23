@@ -25,7 +25,7 @@ public class Lazy
                 return s.Length;
             });
 
-        // at this point none of the logs have apperead
+        // at this point none of the logs have appeared
         Console.WriteLine("After lazy part - notice no lines printed out - yet \n--------- press key ---------");
         Console.ReadLine();
 
@@ -45,7 +45,7 @@ public class Lazy
         });
 
         Console.WriteLine($" MaxLenght is: {maxLength} ");
-        Console.WriteLine("\n--------- Odered   ---------\n");
+        Console.WriteLine("\n--------- Ordered   ---------\n");
 
 
         // Prepares the ordering - but does not go through - no one needs it yet
