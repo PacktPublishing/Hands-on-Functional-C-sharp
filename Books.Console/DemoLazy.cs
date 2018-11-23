@@ -36,7 +36,7 @@ public class Lazy
         Console.WriteLine("\n--------- Max   --- ---------\n");
         
         // aggregation methods - not lazy
-        Console.Write("Print out ^ for each item used in Max method ");
+        Console.WriteLine("Print out ^ for each item used in Max method ");
         var maxLength = shows.Max(s =>
         {
             // this will get printed out along with each iteration while calculating the max length
@@ -44,7 +44,7 @@ public class Lazy
             return s.Length;
         });
 
-        Console.WriteLine($" MaxLenght is: {maxLength} ");
+        Console.WriteLine($"\n MaxLenght is: {maxLength} ");
         Console.WriteLine("\n--------- Ordered   ---------\n");
 
 
@@ -57,12 +57,18 @@ public class Lazy
 
         // we never used "ordered" and therefore it was never actually computed/executed
         // if we uncomment the line below ordered will get used
-        //Conle.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"+ordered.First());
+
+        Console.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"
+            + ordered.First());
+
         // notice how ordered needs to go over the whole collection
 
         Console.WriteLine("\n--------- Only first -------\n");
         // we'd get only one "only first" in the console because Linq takes the first and finishes
-        Console.WriteLine(shows.Where(s => { Console.Write("Only first: "); return true; }).First());
+        var firstShow = shows
+            .Where(s => { Console.Write("First only. "); return true; })
+            .First();
+        Console.WriteLine(firstShow);
 
         Console.WriteLine("\n--------- For each  ---------\n");
         // foreach - not lazy
