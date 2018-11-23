@@ -44,7 +44,7 @@ public class DemoFunc
             };
 
 
-        var bas = Enumerable.Empty<BooksByAuthor>();// for conciceness
+        var bas = Enumerable.Empty<BooksByAuthor>();// for conciseness
 
         var exits = authorExists(bas, "Homer");
 
