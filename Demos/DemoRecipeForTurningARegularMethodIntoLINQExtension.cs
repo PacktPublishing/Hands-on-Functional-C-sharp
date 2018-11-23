@@ -7,7 +7,7 @@ namespace Demos
 {
     public class MethodIsInNonStaticClass
     {
-        public IEnumerable<int> Lenghts(IEnumerable<string> incoming)
+        public IEnumerable<int> Lengths(IEnumerable<string> incoming)
         {
             return incoming.Select(s => s.Length);
         }
@@ -15,9 +15,9 @@ namespace Demos
     
     public static class MethodIsInAStaticClass
     {
-        public static T LongestBy<T>(IEnumerable<T> collection, Func<T, object> lenght)
+        public static T LongestBy<T>(IEnumerable<T> collection, Func<T, object> length)
         {
-            return collection.OrderByDescending(lenght).First();
+            return collection.OrderByDescending(length).First();
         }
     }
 }
