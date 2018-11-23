@@ -7,14 +7,14 @@ public class Lazy
     public static void Demo()
     {
         var shows = new List<string> {
+            "Star Wars: The Empire Strikes Back",
+            "The Godfather",
             "Harry Potter",
             "Prince of Persia",
             "Moon can be a Harsh Mistress",
             "Sindbad and the 9 Seas",
             "Robinson Crusoe",
-            "Lost",
-            "Star Wars: The Empire Strikes Back",
-            "The Godfather"
+            "Lost"
         };
 
         var longShows = shows
@@ -56,10 +56,10 @@ public class Lazy
         });
 
         // we never used "ordered" and therefore it was never actually computed/executed
-        // if we uncomment the line below ordered will get used
+        //// if we uncomment the line below ordered will get used
 
-        Console.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"
-            + ordered.First());
+        //Console.WriteLine("\nThe dots are printed out for each item. And the top ordered one is :\n"
+        //    + ordered.First());
 
         // notice how ordered needs to go over the whole collection
 
