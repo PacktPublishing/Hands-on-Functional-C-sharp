@@ -1,3 +1,3 @@
-# FunctionalCSharp-Books
+# Hands-on-Functional-C-sharp
 
-The source code for my Functional C# course
+Hands on Functional C sharp, published by Packt
