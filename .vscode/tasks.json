@@ -11,17 +11,6 @@
                 "${workspaceFolder}/Books.Console/Books.Console.csproj"
             ],
             "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build demos",
-            "group": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Demos/Demos.csproj"
-            ],
-            "problemMatcher": "$msCompile"
         }
     ]
 }
